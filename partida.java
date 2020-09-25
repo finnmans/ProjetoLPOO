@@ -6,7 +6,7 @@ public class Partida {
             
             Random random = new Random();
             
-            playerAtual = (random.nextInt(rng);%2==0)? 1:0;
+            playerAtual = (random.nextInt(int rng);%2==0)? 1:0;
 
             public Partida(Jogador jogador1, Jogador jogador2) {
                 this.jogador1 = jogador1;
