@@ -70,9 +70,11 @@ public class Partida {
     this.jogadores = new Jogador[] { jogador1, jogador2 };
     SetJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
 
-    String msg = String.format("Jogador [%d]: %s, começará jogando", jogadorAtual.getNumero(), jogadorAtual.getNome());
+    String msg = String.format("%-20s: começará jogando!", jogadorAtual);
 
+    System.out.println();
     System.out.println(msg);
+    System.out.println(String.format("%-40s", " ").replace(" ", "-")); // Printar a linha no tamanho certo
   }
   // #endregion
 
@@ -84,8 +86,7 @@ public class Partida {
   }
 
   public void FazerJogada(int x) {
-    String msg = String.format("jogador [%d]: %s jogou na coluna: %x", jogadorAtual.getNumero(), jogadorAtual.getNome(),
-        x);
+    String msg = String.format("%-20s: jogou na coluna: %x", jogadorAtual, x);
 
     System.out.println(msg);
     TrocarJogadores();
