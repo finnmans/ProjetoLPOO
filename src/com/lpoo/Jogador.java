@@ -8,21 +8,22 @@
 
 package src.com.lpoo;
 
-public class Jogador {
+public class Jogador extends Pessoa {
   private final Integer numero;
-  private final String nome;
 
   public Jogador(int numero, String nome) {
+    super(nome);
     this.numero = numero;
-    this.nome = nome;
   }
 
   public Integer getNumero() {
     return numero;
   }
 
-  public String getNome() {
-    return nome;
+  @Override
+  public String toString() {
+    // Chamando a Super pra não ter repetição e manter a padronização
+    return "[" + this.getNumero() + "] " + super.toString();
   }
 
 }
