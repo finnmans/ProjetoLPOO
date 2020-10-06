@@ -1,3 +1,11 @@
+/**
+ *  Primeira Parte do Projeto de LPOO
+ * 
+ *   Dupla:
+ *    Alexandre Candido Souza
+ *    Felipe Vasconcelos
+ */
+
 package src.com.lpoo;
 
 import java.util.Random;
