@@ -11,37 +11,84 @@ package src.com.lpoo;
 import java.util.Random;
 
 public class Partida {
-  Jogador jogador1, jogador2;
-  Jogador vencedor;
+  private Jogador[] jogadores;
+  private Jogador jogadorAtual;
+  private int jogadorAtualIndex;
 
+  // private Jogador vencedor;
   boolean isFinalizado;
-  Integer jogadorAtual;
+
+  // #region Getters e Setters
+
+  public Jogador GetJogadorByIndex(int arrayIndex) {
+    if (arrayIndex < 0 || arrayIndex >= this.jogadores.length)
+      throw new ArrayIndexOutOfBoundsException("Índice Invalido");
+
+    return this.jogadores[arrayIndex];
+  }
+
+  // TODO: Comentado até eu descobrir como pegar o IndexOf de um elemento :)
+
+  // public Jogador GetJogadorByNumero(int numero) {
+  // for (int i = 0; i < this.jogadores.length; i++) {
+  // var jogador = this.jogadores[i];
+  // if (jogador == null)
+  // continue;
+  //
+  // if (jogador.getNumero() == numero)
+  // return jogador;
+  // }
+  //
+  // throw new ArrayIndexOutOfBoundsException("Id de jogador invalido");
+  // }
+
+  public void SetJogadorAtual(Jogador jogador) {
+    this.jogadorAtual = jogador;
+  }
+
+  public void SetJogadorAtualByIndex(int arrayIndex) {
+    SetJogadorAtual(GetJogadorByIndex(arrayIndex));
+    this.jogadorAtualIndex = arrayIndex;
+  }
+
+  // TODO: Comentado até eu descobrir como pegar o IndexOf de um elemento :)
+
+  // public void SetJogadorAtualByNumero(int numero) {
+  // var jogador = GetJogadorByNumero(numero);
+  // SetJogadorAtual(jogador);
+  // }
+
+  // #endregion
+
+  // #region Construtores
+  public Partida(String nomeJogador1, String nomeJogador2) {
+    this(new Jogador(0, nomeJogador1), new Jogador(1, nomeJogador2));
+  }
 
   public Partida(Jogador jogador1, Jogador jogador2) {
     Random random = new Random();
-    this.jogador1 = jogador1;
-    this.jogador2 = jogador2;
-    this.jogadorAtual = random.nextInt() % 2 == 0 ? 1 : 2;
+    this.jogadores = new Jogador[] { jogador1, jogador2 };
+    SetJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
 
-    String msg = String.format("Jogador [%d]: %s, começará jogando", jogadorAtual, GetJogadorById(jogadorAtual).nome);
+    String msg = String.format("Jogador [%d]: %s, começará jogando", jogadorAtual.getNumero(), jogadorAtual.getNome());
+
     System.out.println(msg);
+  }
+  // #endregion
+
+  public void TrocarJogadores() {
+    if (jogadorAtualIndex == 0)
+      SetJogadorAtualByIndex(1);
+    else
+      SetJogadorAtualByIndex(0);
   }
 
   public void FazerJogada(int x) {
-    String msg = String.format("jogador [%d]: %s jogou na coluna: %x", jogadorAtual, GetJogadorById(jogadorAtual).nome,
+    String msg = String.format("jogador [%d]: %s jogou na coluna: %x", jogadorAtual.getNumero(), jogadorAtual.getNome(),
         x);
+
     System.out.println(msg);
-
-    jogadorAtual = jogadorAtual == 1 ? 2 : 1;
-  }
-
-  private Jogador GetJogadorById(int id) {
-    if (id == 1)
-      return jogador1;
-    else if (id == 2)
-      return jogador2;
-    else
-      throw new NullPointerException("Id Invalido");
+    TrocarJogadores();
   }
 
 }

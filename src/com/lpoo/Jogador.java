@@ -9,11 +9,20 @@
 package src.com.lpoo;
 
 public class Jogador {
-  public Integer id;
-  public String nome;
+  private final Integer numero;
+  private final String nome;
 
-  public Jogador(int id, String nome) {
-    this.id = id;
+  public Jogador(int numero, String nome) {
+    this.numero = numero;
     this.nome = nome;
   }
+
+  public Integer getNumero() {
+    return numero;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
 }
