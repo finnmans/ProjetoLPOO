@@ -45,27 +45,25 @@ public class Tabuleiro {
     }
 
     // Não sei se isso funciona mas parece algo utilizavel
-    public Integer verificarJogada(Integer position, int jogador) {
-       
-        Integer i = 0;
-        if (position > 6)
-            System.out.println("Jogada invalida");
+    public void verificarJogada(int position, int jogador) {
 
-        else {
-            for (i = 0; i < 6; i++) {
-
-                if (jogarTabuleiro[i][position] == 0) {
-                    if (i == 5)
-                        jogarTabuleiro[i][position] = jogador;
-
-                    else {
-                        i--;
-                        jogarTabuleiro[i][position] = jogador;
-                    }
-                }
-            }
+        if(position >= jogarTabuleiro.length){
+            System.out.println("Jogada Invalida"); //sera alterado
+            return;
         }
-        return jogarTabuleiro[i][position];
-    }
+    
+        for(int i=0 ; i < jogarTabuleiro[position].length;i++){
+            int linhaAtual = jogarTabuleiro[i][position];
+            
+            if(linhaAtual == 0) // caso for 0, passa pra proxima
+              continue;
+            else{
+              jogarTabuleiro[i - 1][position] = jogador; //caso tenha achado alguma campo preenchido, se colocar na posição anterior
+              return;
+            }
+        }    
+    
+        jogarTabuleiro[jogarTabuleiro.length - 1][position] = jogador; //caso n tenha achado nada, se coloca no final da coluna
+     }
 
 }
