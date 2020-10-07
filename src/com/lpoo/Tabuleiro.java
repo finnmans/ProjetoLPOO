@@ -15,12 +15,12 @@ public class Tabuleiro {
                 if (j == 0 || j == 28)
                     System.out.printf("|"); // print das laterais
 
-                if (j > 0 && j < 28) {
+                if (j > 0 && j < 28) {// print das divisorias da grid dentro do range 1 a 27 e não printar
+                                      // 2 coisas no msm espaço
 
                     if (i % 2 != 0) { // condição de entrada nas partes sem grid
                         if (j % 4 == 0)
-                            System.out.printf("|"); // print das divisorias da grid dentro do range 1 a 27 e não printar
-                                                    // 2 coisas no msm espaço
+                            System.out.printf("|"); 
 
                         else if (j % 2 != 0)
                             System.out.printf(" "); // print para organizar
@@ -31,9 +31,7 @@ public class Tabuleiro {
 
                     else { // condição de entrada para grid
                         if (j % 4 == 0)
-                            System.out.printf("."); // divisoria de 4 dentro do range 1 a 27 e não printar 2 coisas no
-                                                    // msm espaço
-
+                            System.out.printf("."); // divisoria de 4 para printar no lugar certo
                         else if (i != 12)
                             System.out.print("-");
 
