@@ -14,12 +14,12 @@ public class Tabuleiro {
 
                 if(j==0 || j==28) System.out.printf("|"); //print das laterais
                
-                if(i%2!=0){ //condição de entrada nas partes sem grid
-                    if(j%4==0 && (j>0 && j<28)) System.out.printf("|"); //print das divisorias da grid dentro do range 1 a 27 e não printar 2 coisas no msm espaço
+                if(i%2!=0 && (j>0 && j<28)){ //condição de entrada nas partes sem grid
+                    if(j%4==0) System.out.printf("|"); //print das divisorias da grid dentro do range 1 a 27 e não printar 2 coisas no msm espaço
                     
-                    else if(j%2!=0 && (j>0 && j<28)) System.out.printf(" "); //print para organizar
+                    else if(j%2!=0) System.out.printf(" "); //print para organizar
                    
-                    else if(j>0 && j<28) System.out.printf("0"); //print que vai ser substituido pelo numero do jogador
+                    else System.out.printf("0"); //print que vai ser substituido pelo numero do jogador
                 }
                
                 else{ //condição de entrada para grid                   
