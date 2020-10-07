@@ -20,7 +20,7 @@ public class Tabuleiro {
 
                     if (i % 2 != 0) { // condição de entrada nas partes sem grid
                         if (j % 4 == 0)
-                            System.out.printf("|"); 
+                            System.out.printf("|");
 
                         else if (j % 2 != 0)
                             System.out.printf(" "); // print para organizar
@@ -43,4 +43,29 @@ public class Tabuleiro {
             System.out.print("\n");
         }
     }
+
+    // Não sei se isso funciona mas parece algo utilizavel
+    public Integer verificarJogada(Integer position, int jogador) {
+       
+        Integer i = 0;
+        if (position > 6)
+            System.out.println("Jogada invalida");
+
+        else {
+            for (i = 0; i < 6; i++) {
+
+                if (jogarTabuleiro[i][position] == 0) {
+                    if (i == 5)
+                        jogarTabuleiro[i][position] = jogador;
+
+                    else {
+                        i--;
+                        jogarTabuleiro[i][position] = jogador;
+                    }
+                }
+            }
+        }
+        return jogarTabuleiro[i][position];
+    }
+
 }
