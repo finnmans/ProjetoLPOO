@@ -40,7 +40,7 @@ public class Tabuleiro {
             return;
         }
 
-        for (int i = 0; i < peçaTabuleiro[position].length; i++) {
+        for (int i = 0; i < peçaTabuleiro.length; i++) {
             int linhaAtual = peçaTabuleiro[i][position];
 
             if (linhaAtual == 0) // caso for 0, passa pra proxima

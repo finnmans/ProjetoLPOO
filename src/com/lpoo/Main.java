@@ -18,8 +18,7 @@ public class Main {
     partida.FazerJogada(0);
     partida.FazerJogada(1);
     partida.FazerJogada(2);
+    partida.FazerJogada(2);
     partida.FazerJogada(3);
-
-    tabuleiro.desenharTabuleiro();
   }
 }

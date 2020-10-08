@@ -63,7 +63,7 @@ public class Partida {
 
   // #region Construtores
   public Partida(String nomeJogador1, String nomeJogador2) {
-    this(new Jogador(0, nomeJogador1), new Jogador(1, nomeJogador2));
+    this(new Jogador(1, nomeJogador1), new Jogador(2, nomeJogador2));
   }
 
   public Partida(Jogador jogador1, Jogador jogador2) {
@@ -90,6 +90,8 @@ public class Partida {
     String msg = String.format("%-20s: jogou na coluna: %x", jogadorAtual, x);
 
     System.out.println(msg);
+    tabuleiro.fazerJogada(x, jogadorAtual.getNumero());
+    tabuleiro.desenharTabuleiro();
     TrocarJogadores();
   }
 
