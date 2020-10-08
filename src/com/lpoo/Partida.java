@@ -1,5 +1,5 @@
 /**
- *  Primeira Parte do Projeto de LPOO
+ *  Projeto de LPOO
  * 
  *   Dupla:
  *    Alexandre Candido Souza

@@ -1,3 +1,11 @@
+/**
+ *  Projeto de LPOO
+ * 
+ *   Dupla:
+ *    Alexandre Candido Souza
+ *    Felipe Vasconcelos
+ */
+
 package src.com.lpoo;
 
 public class Tabuleiro {
