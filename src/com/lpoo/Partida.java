@@ -14,6 +14,7 @@ public class Partida {
   private Jogador[] jogadores;
   private Jogador jogadorAtual;
   private int jogadorAtualIndex;
+  Tabuleiro tabuleiro = new Tabuleiro();
 
   // private Jogador vencedor;
   boolean isFinalizado;
