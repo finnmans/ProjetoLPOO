@@ -11,23 +11,24 @@ package src.com.lpoo;
 public class Tabuleiro {
   private int[][] matrizTabuleiro = new int[6][7]; // peças no tabuleiro
 
-  public void desenharTabuleiro() { // desenhar o tabuleiro
-
-    System.out.println(" (0) (1) (2) (3) (4) (5) (6)");// casas possiveis
-    System.out.println("|---.---.---.---.---.---.---|");// linhas de separação
+  @Override
+  public String toString() {
+    var tBuilder = new StringBuilder();
+    tBuilder.append(" (0) (1) (2) (3) (4) (5) (6) \n");// casas possiveis
+    tBuilder.append("|---.---.---.---.---.---.---|\n");// linhas de separação
 
     for (int i = 0; i < 6; i++) {
-      System.out.print("|");
+      tBuilder.append("|");
+
       for (int j = 0; j < 7; j++) {
-        String valorLinha = matrizTabuleiro[i][j] == 0 ? " " : Integer.toString(matrizTabuleiro[i][j], 10);
-        System.out.print(" " + valorLinha + " |");
+        var valorLinha = matrizTabuleiro[i][j] == 0 ? " " : Integer.toString(matrizTabuleiro[i][j], 10);
+        tBuilder.append(" " + valorLinha + " |");
       }
-      System.out.println("\n|---.---.---.---.---.---.---|");// linhas de separação
+
+      tBuilder.append("\n|---.---.---.---.---.---.---|\n");// linhas de separação
 
     }
-
-    System.out.println();
-
+    return tBuilder.toString();
   }
 
   public int fazerJogada(int position, int jogador) {
