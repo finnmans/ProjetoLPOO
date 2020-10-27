@@ -30,11 +30,10 @@ public class Tabuleiro {
 
   }
 
-  public void fazerJogada(int position, int jogador) {
+  public int fazerJogada(int position, int jogador) {
 
     if (position >= matrizTabuleiro.length) {
-      System.out.println("Jogada Invalida"); // sera alterado
-      return;
+      return -1;
     }
 
     for (int i = 0; i < matrizTabuleiro.length; i++) {
@@ -43,13 +42,13 @@ public class Tabuleiro {
       // caso tenha achado alguma campo preenchido, se colocar na posição anterior
       if (linhaAtual != 0) {
         matrizTabuleiro[i - 1][position] = jogador;
-        return;
+        return i;
       }
     }
 
     // caso n tenha achado nada, se coloca no final da coluna
     matrizTabuleiro[matrizTabuleiro.length - 1][position] = jogador;
-
+    return matrizTabuleiro.length - 1;
   }
 
 }
