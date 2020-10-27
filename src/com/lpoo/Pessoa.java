@@ -17,7 +17,7 @@ public class Pessoa {
 
   @Override
   public String toString() {
-    return " Jogador: " + this.getNome();
+    return " Jogador " + this.getNome();
   }
 
   public String getNome() {

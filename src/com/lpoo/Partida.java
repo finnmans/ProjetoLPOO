@@ -28,36 +28,14 @@ public class Partida {
     return this.jogadores[arrayIndex];
   }
 
-  // TODO: Comentado até eu descobrir como pegar o IndexOf de um elemento :)
-
-  // public Jogador GetJogadorByNumero(int numero) {
-  // for (int i = 0; i < this.jogadores.length; i++) {
-  // var jogador = this.jogadores[i];
-  // if (jogador == null)
-  // continue;
-  //
-  // if (jogador.getNumero() == numero)
-  // return jogador;
-  // }
-  //
-  // throw new ArrayIndexOutOfBoundsException("Id de jogador invalido");
-  // }
-
-  public void SetJogadorAtual(Jogador jogador) {
+  public void setJogadorAtual(Jogador jogador) {
     this.jogadorAtual = jogador;
   }
 
-  public void SetJogadorAtualByIndex(int arrayIndex) {
-    SetJogadorAtual(GetJogadorByIndex(arrayIndex));
+  public void setJogadorAtualByIndex(int arrayIndex) {
+    setJogadorAtual(GetJogadorByIndex(arrayIndex));
     this.jogadorAtualIndex = arrayIndex;
   }
-
-  // TODO: Comentado até eu descobrir como pegar o IndexOf de um elemento :)
-
-  // public void SetJogadorAtualByNumero(int numero) {
-  // var jogador = GetJogadorByNumero(numero);
-  // SetJogadorAtual(jogador);
-  // }
 
   // #endregion
 
@@ -69,7 +47,7 @@ public class Partida {
   public Partida(Jogador jogador1, Jogador jogador2) {
     Random random = new Random();
     this.jogadores = new Jogador[] { jogador1, jogador2 };
-    SetJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
+    setJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
 
     String msg = String.format("%-20s: começará jogando!", jogadorAtual);
 
@@ -79,20 +57,20 @@ public class Partida {
   }
   // #endregion
 
-  public void TrocarJogadores() {
+  public void trocarJogadores() {
     if (jogadorAtualIndex == 0)
-      SetJogadorAtualByIndex(1);
+      setJogadorAtualByIndex(1);
     else
-      SetJogadorAtualByIndex(0);
+      setJogadorAtualByIndex(0);
   }
 
-  public void FazerJogada(int x) {
+  public void fazerJogada(int x) {
     String msg = String.format("%-20s: jogou na coluna: %x", jogadorAtual, x);
 
     System.out.println(msg);
     tabuleiro.fazerJogada(x, jogadorAtual.getNumero());
     tabuleiro.desenharTabuleiro();
-    TrocarJogadores();
+    trocarJogadores();
   }
 
 }

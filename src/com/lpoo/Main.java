@@ -14,10 +14,10 @@ public class Main {
     Partida partida = new Partida("Alex", "Felipe");
     // Tabuleiro tabuleiro = new Tabuleiro();
 
-    partida.FazerJogada(0);
-    partida.FazerJogada(1);
-    partida.FazerJogada(2);
-    partida.FazerJogada(2);
-    partida.FazerJogada(3);
+    partida.fazerJogada(0);
+    partida.fazerJogada(1);
+    partida.fazerJogada(2);
+    partida.fazerJogada(2);
+    partida.fazerJogada(3);
   }
 }
