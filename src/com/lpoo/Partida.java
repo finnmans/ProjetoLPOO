@@ -32,6 +32,10 @@ public class Partida {
     this.jogadorAtual = jogador;
   }
 
+  public final Jogador getJoadorAtual() {
+    return this.jogadorAtual;
+  }
+
   public void setJogadorAtualByIndex(int arrayIndex) {
     setJogadorAtual(GetJogadorByIndex(arrayIndex));
     this.jogadorAtualIndex = arrayIndex;
@@ -48,12 +52,6 @@ public class Partida {
     Random random = new Random();
     this.jogadores = new Jogador[] { jogador1, jogador2 };
     setJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
-
-    String msg = String.format("%-20s: começará jogando!", jogadorAtual);
-
-    System.out.println();
-    System.out.println(msg);
-    System.out.println(String.format("%-40s", " ").replace(" ", "-")); // Printar a linha no tamanho certo
   }
   // #endregion
 
@@ -64,13 +62,10 @@ public class Partida {
       setJogadorAtualByIndex(0);
   }
 
-  public void fazerJogada(int x) {
-    String msg = String.format("%-20s: jogou na coluna: %x", jogadorAtual, x);
-
-    System.out.println(msg);
+  public String fazerJogada(int x) {
     tabuleiro.fazerJogada(x, jogadorAtual.getNumero());
-    tabuleiro.desenharTabuleiro();
     trocarJogadores();
+    return tabuleiro.toString();
   }
 
 }
