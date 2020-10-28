@@ -37,19 +37,18 @@ public class Tabuleiro {
       return -1;
     }
 
-    for (int i = 0; i < matrizTabuleiro.length; i++) {
+    for (int i = (matrizTabuleiro.length - 1); i >= 0; i--) {
       int linhaAtual = matrizTabuleiro[i][position];
 
       // caso tenha achado alguma campo preenchido, se colocar na posição anterior
-      if (linhaAtual != 0) {
-        matrizTabuleiro[i - 1][position] = jogador;
+      if (linhaAtual == 0) {
+        matrizTabuleiro[i][position] = jogador;
         return i;
       }
     }
 
-    // caso n tenha achado nada, se coloca no final da coluna
-    matrizTabuleiro[matrizTabuleiro.length - 1][position] = jogador;
-    return matrizTabuleiro.length - 1;
+    // caso n tenha achado nada, retorna -1 (Coluna Preenchida)
+    return -1;
   }
 
 }
