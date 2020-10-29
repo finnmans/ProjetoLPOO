@@ -31,6 +31,10 @@ public class Tabuleiro {
     return tBuilder.toString();
   }
 
+  public int GetPosition(int x, int y) {
+    return this.matrizTabuleiro[y][x];
+  }
+
   public boolean isCheio() {
     return br.com.poli.utils.Arrays.contemElemento(matrizTabuleiro, 0);
   }
