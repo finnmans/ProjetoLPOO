@@ -6,7 +6,8 @@
  *    Felipe Vasconcelos
  */
 
-package src.br.com.poli.connect4;
+package src.com.lpoo;
+import src.br.com.poli.connect4.Pessoa;
 
 public class Jogador extends Pessoa {
   private final Integer numero;
