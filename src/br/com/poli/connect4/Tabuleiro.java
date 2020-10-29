@@ -6,9 +6,9 @@
  *    Felipe Vasconcelos
  */
 
-package br.com.poli.connect4;
+package src.br.com.poli.connect4;
 
-import br.com.poli.utils.Vector2Int;
+import src.br.com.poli.utils.Vector2Int;
 
 public class Tabuleiro {
   private int[][] matrizTabuleiro = new int[6][7]; // peças no tabuleiro
@@ -42,7 +42,7 @@ public class Tabuleiro {
   }
 
   public boolean isCheio() {
-    return br.com.poli.utils.Arrays.contemElemento(matrizTabuleiro, 0);
+    return src.br.com.poli.utils.Arrays.contemElemento(matrizTabuleiro, 0);
   }
 
   public int fazerJogada(int position, int jogador) {
