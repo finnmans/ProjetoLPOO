@@ -13,6 +13,7 @@ import java.util.Random;
 public class Partida {
   private Jogador[] jogadores;
   private Jogador jogadorAtual;
+  private Jogador vencedor;
   private int jogadorAtualIndex;
   Tabuleiro tabuleiro = new Tabuleiro();
 
@@ -60,6 +61,10 @@ public class Partida {
       setJogadorAtualByIndex(1);
     else
       setJogadorAtualByIndex(0);
+  }
+
+  public boolean isEmpate() {
+    return tabuleiro.isCheio() && vencedor == null;
   }
 
   public String fazerJogada(int x) {

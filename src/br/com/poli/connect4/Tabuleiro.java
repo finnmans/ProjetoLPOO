@@ -31,6 +31,10 @@ public class Tabuleiro {
     return tBuilder.toString();
   }
 
+  public boolean isCheio() {
+    return br.com.poli.utils.Arrays.contemElemento(matrizTabuleiro, 0);
+  }
+
   public int fazerJogada(int position, int jogador) {
 
     if (position >= matrizTabuleiro.length) {
