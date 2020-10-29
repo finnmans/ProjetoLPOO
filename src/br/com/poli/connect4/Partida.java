@@ -6,7 +6,7 @@
  *    Felipe Vasconcelos
  */
 
-package src.com.lpoo;
+package br.com.poli.connect4;
 
 import java.util.Random;
 
@@ -63,8 +63,12 @@ public class Partida {
   }
 
   public String fazerJogada(int x) {
-    tabuleiro.fazerJogada(x, jogadorAtual.getNumero());
+
+    if (tabuleiro.fazerJogada(x, jogadorAtual.getNumero()) == -1)
+      return "Jogada Inválida \n";
+
     trocarJogadores();
+
     return tabuleiro.toString();
   }
 

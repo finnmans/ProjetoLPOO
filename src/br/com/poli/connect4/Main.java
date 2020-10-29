@@ -6,7 +6,7 @@
  *    Felipe Vasconcelos
  */
 
-package src.com.lpoo;
+package br.com.poli.connect4;
 
 public class Main {
 
@@ -22,15 +22,19 @@ public class Main {
     System.out.println(partida.fazerJogada(0));
 
     System.out.printf(msgBase, partida.getJoadorAtual(), 1);
-    System.out.println(partida.fazerJogada(1));
+    System.out.println(partida.fazerJogada(0));
 
     System.out.printf(msgBase, partida.getJoadorAtual(), 2);
-    System.out.println(partida.fazerJogada(2));
+    System.out.println(partida.fazerJogada(0));
 
     System.out.printf(msgBase, partida.getJoadorAtual(), 2);
-    System.out.println(partida.fazerJogada(2));
+    System.out.println(partida.fazerJogada(0));
 
     System.out.printf(msgBase, partida.getJoadorAtual(), 3);
-    System.out.println(partida.fazerJogada(3));
+    System.out.println(partida.fazerJogada(0));
+    System.out.println(partida.fazerJogada(0));
+    System.out.println(partida.fazerJogada(0));
+    System.out.println(partida.fazerJogada(0));
+    System.out.println(partida.fazerJogada(0));
   }
 }

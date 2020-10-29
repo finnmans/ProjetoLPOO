@@ -6,7 +6,7 @@
  *    Felipe Vasconcelos
  */
 
-package src.com.lpoo;
+package br.com.poli.connect4;
 
 public class Jogador extends Pessoa {
   private final Integer numero;
