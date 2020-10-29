@@ -68,13 +68,21 @@ public class Partida {
   }
 
   public String fazerJogada(int x) {
+    int playerNum = jogadorAtual.getNumero();
+    int y = tabuleiro.fazerJogada(x, playerNum);
 
-    if (tabuleiro.fazerJogada(x, jogadorAtual.getNumero()) == -1)
+    if (y == -1)
       return "Jogada Inválida \n";
 
-    trocarJogadores();
+    System.out.println("\n Ganhou?: " + checkVertical(x, y, playerNum) + "\n");
 
+    trocarJogadores();
     return tabuleiro.toString();
+  }
+
+  private boolean checkVertical(int x, int y, int player) {
+
+    return false;
   }
 
 }

@@ -8,8 +8,11 @@
 
 package br.com.poli.connect4;
 
+import br.com.poli.utils.Vector2Int;
+
 public class Tabuleiro {
   private int[][] matrizTabuleiro = new int[6][7]; // peças no tabuleiro
+  private final Vector2Int ultimoVetor = new Vector2Int(-1, -1);
 
   @Override
   public String toString() {
@@ -22,6 +25,9 @@ public class Tabuleiro {
 
       for (int j = 0; j < 7; j++) {
         var valorLinha = matrizTabuleiro[i][j] == 0 ? " " : Integer.toString(matrizTabuleiro[i][j], 10);
+        if (ultimoVetor.compare(j, i))
+          valorLinha = "\u001B[35m" + valorLinha + "\u001B[0m";
+
         tBuilder.append(" " + valorLinha + " |");
       }
 
@@ -40,7 +46,6 @@ public class Tabuleiro {
   }
 
   public int fazerJogada(int position, int jogador) {
-
     if (position >= matrizTabuleiro.length) {
       return -1;
     }
@@ -51,11 +56,15 @@ public class Tabuleiro {
       // caso tenha achado alguma campo preenchido, se colocar na posição anterior
       if (linhaAtual == 0) {
         matrizTabuleiro[i][position] = jogador;
+
+        ultimoVetor.x = position;
+        ultimoVetor.y = i;
         return i;
       }
     }
 
     // caso n tenha achado nada, retorna -1 (Coluna Preenchida)
+    ultimoVetor.y = -1;
     return -1;
   }
 
