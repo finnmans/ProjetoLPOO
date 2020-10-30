@@ -1,4 +1,4 @@
-package src.br.com.poli.utils;
+package br.com.poli.utils;
 
 public class Vector2Int {
   public int x;

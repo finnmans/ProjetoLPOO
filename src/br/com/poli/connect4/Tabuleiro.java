@@ -6,9 +6,9 @@
  *    Felipe Vasconcelos
  */
 
-package src.br.com.poli.connect4;
+package br.com.poli.connect4;
 
-import src.br.com.poli.utils.Vector2Int;
+import br.com.poli.utils.Vector2Int;
 
 public class Tabuleiro {
   private int[][] matrizTabuleiro = new int[6][7]; // peças no tabuleiro
@@ -40,11 +40,12 @@ public class Tabuleiro {
   public int getPosition(int x, int y) {
     return this.matrizTabuleiro[y][x];
   }
-  public int getPositionX(int x){
-     return this.matrizTabuleiro[matrizTabuleiro.length][x];
+
+  public int getPositionX(int x) {
+    return this.matrizTabuleiro[matrizTabuleiro.length][x];
   }
 
-  public int getPositionY(int y){
+  public int getPositionY(int y) {
     return this.matrizTabuleiro[y][matrizTabuleiro[0].length];
   }
 
@@ -83,32 +84,34 @@ public class Tabuleiro {
     return -1;
   }
 
-  public boolean checkWinVertical(int x,int y){
+  public boolean checkWinVertical(int x, int y) {
     int player = matrizTabuleiro[y][x];
     int Max = matrizTabuleiro.length;
-   
-    if(Max > 4) Max = 4;
 
-    for(int j = y; j < Max; j++){
+    if (Max > 4)
+      Max = 4;
 
-    if(matrizTabuleiro[j][x] != player) return false;
-}
-return true;
-}
-public boolean checkWinHorizon(int x,int y){
-  int player = matrizTabuleiro[y][x];
-  int Max = matrizTabuleiro[0].length;
- 
-  if(Max > 4) Max = 4;
+    for (int j = y; j < Max; j++) {
 
-  for(int i = x; i < Max; i++){
+      if (matrizTabuleiro[j][x] != player)
+        return false;
+    }
+    return true;
+  }
 
-  if(matrizTabuleiro[y][i] != player) return false;
-}
-return true;
-}
+  public boolean checkWinHorizon(int x, int y) {
+    int player = matrizTabuleiro[y][x];
+    int Max = matrizTabuleiro[0].length;
 
+    if (Max > 4)
+      Max = 4;
 
+    for (int i = x; i < Max; i++) {
 
-  
+      if (matrizTabuleiro[y][i] != player)
+        return false;
+    }
+    return true;
+  }
+
 }
