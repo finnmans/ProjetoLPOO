@@ -7,7 +7,6 @@
  */
 
 package src.br.com.poli.connect4;
-
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +14,7 @@ public class Main {
   public static void main(String[] args) {
     String jog1,jog2;
     byte win = 0;
+    boolean draw = false;;
 
     Scanner scn1 = new Scanner(System.in);
     Scanner scn2 = new Scanner(System.in);
@@ -40,26 +40,16 @@ public class Main {
 
       System.out.println(partida.fazerJogada(play.nextInt()));
       //win = checkWin(); //verifica se o jogador ganhou a partida 
-   /* // System.out.printf(msgBase, partida.getJoadorAtual(), 0);
-    System.out.println(partida.fazerJogada(0));
-
-    // System.out.printf(msgBase, partida.getJoadorAtual(), 1);
-    System.out.println(partida.fazerJogada(1));
-
-    // System.out.printf(msgBase, partida.getJoadorAtual(), 2);
-    System.out.println(partida.fazerJogada(0));
-
-    // System.out.printf(msgBase, partida.getJoadorAtual(), 2);
-    System.out.println(partida.fazerJogada(1));
-
-    // System.out.printf(msgBase, partida.getJoadorAtual(), 3);
-    System.out.println(partida.fazerJogada(0));
-    System.out.println(partida.fazerJogada(1));
-    System.out.println(partida.fazerJogada(0));
-    System.out.println(partida.fazerJogada(1));
-    System.out.println(partida.fazerJogada(0));
-    */
+      if(partida.isEmpate()){
+        System.out.println("ITS A TIE!");
+        break;
+      } 
+   /* else if(checkWin()){
+     System.out.println();
+      break;
+    }*/
     }while(win != 1);
+    System.out.println("Jogo acabou");
     play.close();
     scn1.close();
     scn2.close();

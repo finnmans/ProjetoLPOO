@@ -42,7 +42,13 @@ public class Tabuleiro {
   }
 
   public boolean isCheio() {
-    return src.br.com.poli.utils.Arrays.contemElemento(matrizTabuleiro, 0);
+    for (int i = 0; i < matrizTabuleiro.length; i++) {
+      for (int j = 0; j < matrizTabuleiro[0].length; j++) {
+        if (matrizTabuleiro[i][j] == 0)
+          return false;
+      }
+    }
+    return true;
   }
 
   public int fazerJogada(int position, int jogador) {
@@ -64,6 +70,7 @@ public class Tabuleiro {
     }
 
     // caso n tenha achado nada, retorna -1 (Coluna Preenchida)
+    if(isCheio()) return 0;
     ultimoVetor.y = -1;
     return -1;
   }
