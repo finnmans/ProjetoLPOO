@@ -46,7 +46,7 @@ public class Tabuleiro {
   }
 
   public int fazerJogada(int position, int jogador) {
-    if (position >= matrizTabuleiro.length) {
+    if (position > matrizTabuleiro.length) {
       return -1;
     }
 
