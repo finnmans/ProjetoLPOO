@@ -41,12 +41,12 @@ public class Tabuleiro {
     return this.matrizTabuleiro[y][x];
   }
 
-  public int getPositionX(int x) {
-    return this.matrizTabuleiro[matrizTabuleiro.length][x];
+  public int getLengthX() {
+    return this.matrizTabuleiro[0].length;
   }
 
-  public int getPositionY(int y) {
-    return this.matrizTabuleiro[y][matrizTabuleiro[0].length];
+  public int getLengthY() {
+    return this.matrizTabuleiro.length;
   }
 
   public boolean isCheio() {
@@ -77,41 +77,8 @@ public class Tabuleiro {
       }
     }
 
-    // caso n tenha achado nada, retorna -1 (Coluna Preenchida)
-    if (isCheio())
-      return 0;
     ultimoVetor.y = -1;
     return -1;
-  }
-
-  public boolean checkWinVertical(int x, int y) {
-    int player = matrizTabuleiro[y][x];
-    int Max = matrizTabuleiro.length;
-
-    if (Max > 4)
-      Max = 4;
-
-    for (int j = y; j < Max; j++) {
-
-      if (matrizTabuleiro[j][x] != player)
-        return false;
-    }
-    return true;
-  }
-
-  public boolean checkWinHorizon(int x, int y) {
-    int player = matrizTabuleiro[y][x];
-    int Max = matrizTabuleiro[0].length;
-
-    if (Max > 4)
-      Max = 4;
-
-    for (int i = x; i < Max; i++) {
-
-      if (matrizTabuleiro[y][i] != player)
-        return false;
-    }
-    return true;
   }
 
 }

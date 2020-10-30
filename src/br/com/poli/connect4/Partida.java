@@ -74,19 +74,69 @@ public class Partida {
     if (y == -1)
       return "Jogada Inválida \n";
 
-    System.out.println("\n Ganhou?: " + checkVertical(x, y, playerNum) + "\n");
+    System.out.println("\n Ganhou?: " + checkWinHorizontal(x, y) + "\n");
 
     trocarJogadores();
     return tabuleiro.toString();
   }
 
-  private boolean checkVertical(int x, int y, int player) {
+  private boolean checkWinVertical(int x, int y) {
+    // Caso não tenha 4 casas abaixo dele já retorna falso ai
+    if (tabuleiro.getLengthY() - y < 4)
+      return false;
+
+    int player = tabuleiro.getPosition(x, y);
+
+    // Checa as próximas 3 casas abaixo
+    for (int i = 1; i < 4; i++) {
+      // se em alguma delas tiver alguma diferença
+      if (tabuleiro.getPosition(x, y + i) != player)
+        return false; // jogador não ganhou
+    }
+
+    return true; // jogador ganhou
+  }
+
+  public boolean checkWinHorizontal(int x, int y) {
+    int player = tabuleiro.getPosition(x, y);
+    int max = tabuleiro.getLengthX();
+    int counter = 0;
+
+    for (int j = 0; j < max; j++) {
+      // caso haja algum diferente na sequência
+      if (tabuleiro.getPosition(j, y) != player) {
+        counter = 0; // reseta a contagem
+        continue;
+      }
+
+      counter++;
+
+      if (counter >= 4) // se ele conseguir contar 4 em sequência
+        return true; // vitória
+    }
+
+    return false; // derrota
+  }
+
+  public boolean checkWinDiagonais(int x, int y) {
+    int player = tabuleiro.getPosition(x, y);
+    int max = tabuleiro.getLengthX();
+    int counter = 0;
+
+    for (int j = 0; j < max; j++) {
+      // caso haja algum diferente na sequência
+      if (tabuleiro.getPosition(j, y) != player) {
+        counter = 0; // reseta a contagem
+        continue;
+      }
+
+      counter++;
+
+      if (counter >= 4) // se ele conseguir contar 4 em sequência
+        return true;
+    }
 
     return false;
   }
-
-  
-
-    
 
 }
