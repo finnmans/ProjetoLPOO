@@ -14,7 +14,6 @@ public class Main {
   public static void main(String[] args) {
     String jog1,jog2;
     byte win = 0;
-    boolean draw = false;;
 
     Scanner scn1 = new Scanner(System.in);
     Scanner scn2 = new Scanner(System.in);
