@@ -15,7 +15,7 @@ public class Main {
   public static void main(String[] args) {
     String jog1,jog2;
     byte win = 0;
-    
+
     Scanner scn1 = new Scanner(System.in);
     Scanner scn2 = new Scanner(System.in);
     Scanner play = new Scanner(System.in);
@@ -37,9 +37,9 @@ public class Main {
     // String msgBase = "%-20s: jogou na coluna: %x %n";
     do{
 
-    //  playP = play.nextInt();
+
       System.out.println(partida.fazerJogada(play.nextInt()));
-      //win = checkWin(); //verifica se o jogador ganhou a partida
+      //win = checkWin(); //verifica se o jogador ganhou a partida 
    /* // System.out.printf(msgBase, partida.getJoadorAtual(), 0);
     System.out.println(partida.fazerJogada(0));
 
