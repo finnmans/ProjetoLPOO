@@ -73,7 +73,7 @@ public class Partida {
     int y = tabuleiro.fazerJogada(x, playerNum);
 
     if (y == -1)
-      return tabuleiro.toString();
+      return tabuleiro.toString() + "\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n";
 
     if (checkWin(x, y)) {
       vencedor = jogadorAtual;
