@@ -17,29 +17,30 @@ public class Partida {
   private int jogadorAtualIndex;
   Tabuleiro tabuleiro = new Tabuleiro();
 
-  // private Jogador vencedor;
-  boolean isFinalizado;
-
   // #region Getters e Setters
 
-  public Jogador GetJogadorByIndex(int arrayIndex) {
+  protected void setJogadorAtual(Jogador jogador) {
+    this.jogadorAtual = jogador;
+  }
+
+  protected void setJogadorAtualByIndex(int arrayIndex) {
+    setJogadorAtual(GetJogadorByIndex(arrayIndex));
+    this.jogadorAtualIndex = arrayIndex;
+  }
+
+  public final Jogador GetJogadorByIndex(int arrayIndex) {
     if (arrayIndex < 0 || arrayIndex >= this.jogadores.length)
       throw new ArrayIndexOutOfBoundsException("Índice Invalido");
 
     return this.jogadores[arrayIndex];
   }
 
-  public void setJogadorAtual(Jogador jogador) {
-    this.jogadorAtual = jogador;
-  }
-
-  public final Jogador getJoadorAtual() {
+  public final Jogador getJogadorAtual() {
     return this.jogadorAtual;
   }
 
-  public void setJogadorAtualByIndex(int arrayIndex) {
-    setJogadorAtual(GetJogadorByIndex(arrayIndex));
-    this.jogadorAtualIndex = arrayIndex;
+  public final Jogador getVencedor() {
+    return this.vencedor;
   }
 
   // #endregion
@@ -63,8 +64,8 @@ public class Partida {
       setJogadorAtualByIndex(0);
   }
 
-  public boolean isEmpate() {
-    return tabuleiro.isCheio() && vencedor == null;
+  public String getTabuleiroString() {
+    return tabuleiro.toString();
   }
 
   public String fazerJogada(int x) {
@@ -72,15 +73,27 @@ public class Partida {
     int y = tabuleiro.fazerJogada(x, playerNum);
 
     if (y == -1)
-      return "Jogada Inválida \n";
+      return tabuleiro.toString();
 
-    System.out.println("\n Ganhou?: " + checkWinHorizontal(x, y) + "\n");
+    if (checkWin(x, y)) {
+      vencedor = jogadorAtual;
+    } else {
+      trocarJogadores();
+    }
 
-    trocarJogadores();
     return tabuleiro.toString();
   }
 
-  private boolean checkWinVertical(int x, int y) {
+  public boolean isEmpate() {
+    return (tabuleiro.isCheio() && vencedor == null);
+  }
+
+  public boolean checkWin(int x, int y) {
+    return checkWinVertical(x, y) || checkWinHorizontal(x, y) || checkWinDiagonais(x, y);
+  }
+
+  // #region CheckWin
+  protected boolean checkWinVertical(int x, int y) {
     // Caso não tenha 4 casas abaixo dele já retorna falso ai
     if (tabuleiro.getLengthY() - y < 4)
       return false;
@@ -97,7 +110,7 @@ public class Partida {
     return true; // jogador ganhou
   }
 
-  public boolean checkWinHorizontal(int x, int y) {
+  protected boolean checkWinHorizontal(int x, int y) {
     int player = tabuleiro.getPosition(x, y);
     int max = tabuleiro.getLengthX();
     int counter = 0;
@@ -118,25 +131,35 @@ public class Partida {
     return false; // derrota
   }
 
-  public boolean checkWinDiagonais(int x, int y) {
+  protected boolean checkWinDiagonais(int x, int y) {
     int player = tabuleiro.getPosition(x, y);
-    int max = tabuleiro.getLengthX();
-    int counter = 0;
+    int max = tabuleiro.getLengthY();
+    int d1x = x - y;
+    int d2x = x + y;
 
-    for (int j = 0; j < max; j++) {
+    int d1counter = 0;
+    int d2counter = 0;
+
+    for (int i = 0; i < max; i++) {
+
+      // D1
+      if (tabuleiro.getPosition(d1x + i, i) != player) {
+        d1counter = 0; // reseta a contagem
+      } else {
+        d1counter++;
+      }
       // caso haja algum diferente na sequência
-      if (tabuleiro.getPosition(j, y) != player) {
-        counter = 0; // reseta a contagem
-        continue;
+      if (tabuleiro.getPosition(d2x - i, i) != player) {
+        d2counter = 0; // reseta a contagem
+      } else {
+        d2counter++;
       }
 
-      counter++;
-
-      if (counter >= 4) // se ele conseguir contar 4 em sequência
+      if (d1counter >= 4 || d2counter >= 4) // se ele conseguir contar 4 em sequência
         return true;
     }
 
     return false;
   }
-
+  // #endregion checkWin
 }
