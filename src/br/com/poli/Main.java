@@ -6,8 +6,9 @@
  *    Felipe Vasconcelos
  */
 
-package br.com.poli.connect4;
+package br.com.poli;
 
+import br.com.poli.connect4.*;
 import java.util.Scanner;
 
 public class Main {

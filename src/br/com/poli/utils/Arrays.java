@@ -1,3 +1,11 @@
+/**
+ *  Projeto de LPOO
+ * 
+ *   Dupla:
+ *    Alexandre Candido Souza
+ *    Felipe Vasconcelos
+ */
+
 package br.com.poli.utils;
 
 public final class Arrays {

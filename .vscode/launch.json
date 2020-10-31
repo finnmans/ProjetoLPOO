@@ -8,6 +8,13 @@
       "type": "java",
       "name": "CodeLens (Launch) - Main",
       "request": "launch",
+      "mainClass": "br.com.poli.Main",
+      "projectName": "ProjetoLPOO_a7405e2"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Main",
+      "request": "launch",
       "mainClass": "src.br.com.poli.connect4.Main",
       "projectName": "ProjetoLPOO_fd3824f2"
     },
