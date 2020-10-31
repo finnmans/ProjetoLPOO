@@ -38,7 +38,18 @@ public class Tabuleiro {
   }
 
   public int getPosition(int x, int y) {
-    return this.matrizTabuleiro[y][x];
+    return getPosition(x, y, false);
+  }
+
+  public int getPosition(int x, int y, boolean exception) {
+    try {
+      return this.matrizTabuleiro[y][x];
+    } catch (Exception e) {
+      if (exception)
+        throw e;
+
+      return -1;
+    }
   }
 
   public int getLengthX() {
