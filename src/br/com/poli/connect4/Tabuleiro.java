@@ -8,6 +8,8 @@
 
 package br.com.poli.connect4;
 
+import java.security.InvalidParameterException;
+
 import br.com.poli.utils.Vector2Int;
 
 public class Tabuleiro {
@@ -48,7 +50,7 @@ public class Tabuleiro {
       if (exception)
         throw e;
 
-      return -1;
+        throw new InvalidParameterException("Jogada invalida!");
     }
   }
 
@@ -72,7 +74,7 @@ public class Tabuleiro {
 
   public int fazerJogada(int position, int jogador) {
     if (position > matrizTabuleiro.length) {
-      return -1;
+      throw new InvalidParameterException("Jogada invalida!");
     }
 
     for (int i = (matrizTabuleiro.length - 1); i >= 0; i--) {
@@ -89,7 +91,7 @@ public class Tabuleiro {
     }
 
     ultimoVetor.y = -1;
-    return -1;
+    throw new InvalidParameterException("Jogada invalida!");
   }
 
 }
