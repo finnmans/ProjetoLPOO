@@ -111,15 +111,16 @@ public class Tabuleiro {
   /**
    * Preenche a matriz do tabuleiro com uma nova jogada
    * 
-   * @param position Posição Horizontal(x) da coluna que vai ser preenchida
-   * @param jogador  Identificador de quem fez a jogada
+   * @param position Posição Horizontal(x) da coluna que vai ser preenchida.
+   * @param jogador  Identificador de quem fez a jogada.
+   * @return Inteiro com a posição Vertical(Y) onde foi marcado.
    * @throws FullColumnException      caso a coluna especificada pelo parametro
-   *                                  position já esteja cheia
+   *                                  position já esteja cheia.
    * @throws IllegalArgumentException caso a coluna especificada pelo parametro
    *                                  position seja menor que 0 ou maior que o
-   *                                  valor máximo
+   *                                  valor máximo.
    */
-  public void fazerJogada(int position, int jogador) throws FullColumnException {
+  public int fazerJogada(int position, int jogador) throws FullColumnException {
     if (position >= matrizTabuleiro[0].length) {
       throw new IllegalArgumentException(String.format(
           "[Posição Inválida] Posição deve ser maior ou igual à %i e menor que %i.", 0, matrizTabuleiro.length));
@@ -134,6 +135,7 @@ public class Tabuleiro {
 
         ultimaPosicaoJogada.x = position;
         ultimaPosicaoJogada.y = i;
+        return i;
       }
     }
 
