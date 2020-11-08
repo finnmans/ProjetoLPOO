@@ -8,8 +8,7 @@
 
 package br.com.poli.connect4;
 
-import java.security.InvalidParameterException;
-
+import br.com.poli.exceptions.FullColumnException;
 import br.com.poli.utils.Vector2Int;
 
 public class Tabuleiro {
@@ -50,7 +49,7 @@ public class Tabuleiro {
       if (exception)
         throw e;
 
-        throw new InvalidParameterException("Jogada invalida!");
+      return -1;
     }
   }
 
@@ -72,9 +71,10 @@ public class Tabuleiro {
     return true;
   }
 
-  public int fazerJogada(int position, int jogador) {
-    if (position > matrizTabuleiro.length) {
-      throw new InvalidParameterException("Jogada invalida!");
+  public int fazerJogada(int position, int jogador) throws FullColumnException {
+    if (position >= matrizTabuleiro.length) {
+      throw new IllegalArgumentException(String.format(
+          "[Posição Inválida] Posição deve ser maior ou igual à %i e menor que %i.", 0, matrizTabuleiro.length));
     }
 
     for (int i = (matrizTabuleiro.length - 1); i >= 0; i--) {
@@ -91,7 +91,7 @@ public class Tabuleiro {
     }
 
     ultimoVetor.y = -1;
-    throw new InvalidParameterException("Jogada invalida!");
+    throw new FullColumnException("[Posição Inválida] A coluna já está preenchida.");
   }
 
 }
