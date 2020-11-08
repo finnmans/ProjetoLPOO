@@ -10,6 +10,8 @@ package br.com.poli.connect4;
 
 import java.util.Random;
 
+import br.com.poli.exceptions.FullColumnException;
+
 public class Partida {
   private Jogador[] jogadores;
   private Jogador jogadorAtual;
@@ -51,12 +53,15 @@ public class Partida {
   }
 
   public Partida(Jogador jogador1, Jogador jogador2) {
-    Random random = new Random();
+    Random random = new Random(); // Decide aleátoriamente qual jogador vai jogar primeiro
     this.jogadores = new Jogador[] { jogador1, jogador2 };
     setJogadorAtualByIndex(random.nextInt() % 2 == 0 ? 0 : 1);
   }
   // #endregion
 
+  /**
+   * Faz a troca dos jogadores através do índice no array
+   */
   public void trocarJogadores() {
     if (jogadorAtualIndex == 0)
       setJogadorAtualByIndex(1);
@@ -64,35 +69,65 @@ public class Partida {
       setJogadorAtualByIndex(0);
   }
 
+  /**
+   * @return String com o status atual do tabuleiro
+   */
   public String getTabuleiroString() {
     return tabuleiro.toString();
   }
 
-  public String fazerJogada(int x) {
+  /**
+   * Realiza a jogada Caso a jogada resulte em vitória atribui o jogadorAtual como
+   * vencedor Caso contrário passa a vez para o próximo jogador.
+   * 
+   * @param x Posição Horizontal(Coluna) que se pretende jogar.
+   * @throws FullColumnException      caso a coluna especificada pelo parametro
+   *                                  position já esteja cheia.
+   * @throws IllegalArgumentException caso a coluna especificada pelo parametro
+   *                                  position seja menor que 0 ou maior que o
+   *                                  valor máximo.
+   */
+  public void fazerJogada(int x) throws FullColumnException {
     int playerNum = jogadorAtual.getNumero();
-    int y = tabuleiro.fazerJogada(x, playerNum);
 
-    if (y == -1)
-      return tabuleiro.toString() + "\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n";
+    int y = tabuleiro.fazerJogada(x, playerNum);
 
     if (checkWin(x, y)) {
       vencedor = jogadorAtual;
     } else {
       trocarJogadores();
     }
-
-    return tabuleiro.toString();
   }
 
+  /**
+   * Checa se houve empate
+   * 
+   * @return True caso o tabuleiro esteja cheio e não haja vencedor
+   */
   public boolean isEmpate() {
     return (tabuleiro.isCheio() && vencedor == null);
   }
 
+  /**
+   * Checar se a posição (x,y) configura vitória (Vertical/Horizonta/Diagonal)
+   * 
+   * @param x posição na horizontal (coluna)
+   * @param y posição na vertical (linha)
+   * @return True: Caso posição configure vitória
+   */
   public boolean checkWin(int x, int y) {
     return checkWinVertical(x, y) || checkWinHorizontal(x, y) || checkWinDiagonais(x, y);
   }
 
   // #region CheckWin
+
+  /**
+   * Checar se a posição (x,y) configura vitória (Vertical)
+   * 
+   * @param x posição na horizontal (coluna)
+   * @param y posição na vertical (linha)
+   * @return True: Caso posição configure vitória
+   */
   protected boolean checkWinVertical(int x, int y) {
     // Caso não tenha 4 casas abaixo dele já retorna falso ai
     if (tabuleiro.getLengthY() - y < 4)
@@ -110,10 +145,22 @@ public class Partida {
     return true; // jogador ganhou
   }
 
+  /**
+   * Checar se a posição (x,y) configura vitória (Diagonal)
+   * 
+   * @param x posição na horizontal (coluna)
+   * @param y posição na vertical (linha)
+   * @return True: Caso posição configure vitória
+   */
   protected boolean checkWinHorizontal(int x, int y) {
     int player = tabuleiro.getPosition(x, y);
     int max = tabuleiro.getLengthX();
     int counter = 0;
+
+    // A contagem vai de um canto a outro do tabuleiro ou seja O(n).
+
+    // TODO: daria pra melhorar fazendo o loop rodar apenas 4 vezes O(1) pra checar
+    // dos dois lados, mas assim foi mais rápido
 
     for (int j = 0; j < max; j++) {
       // caso haja algum diferente na sequência
@@ -131,9 +178,25 @@ public class Partida {
     return false; // derrota
   }
 
+  /**
+   * Checar se a posição (x,y) configura vitória (Diagonal)
+   * 
+   * @param x posição na horizontal (coluna)
+   * @param y posição na vertical (linha)
+   * @return True: Caso posição configure vitória
+   */
   protected boolean checkWinDiagonais(int x, int y) {
-    int player = tabuleiro.getPosition(x, y);
+    int player = tabuleiro.getPosition(x, y); // valor pra comparar
     int max = tabuleiro.getLengthY();
+
+    // X das diagonais quando Y = 0;
+    // Ex: se a pessoa joga em (3,2) o ponto superior esquerdo da diagonal vai ser
+    // (1,0) e o direito vai ser (5,0)
+
+    // Att: Lembrando que o getPosition retorna -1 em condições inváldias, então
+    // mesmo que o (X,Y) não exista por estarmos usando um tamanho de checagem fixo
+    // ele vai simplesmente ser tratado como valor diferente e zerar a contagem
+
     int d1x = x - y;
     int d2x = x + y;
 
@@ -142,24 +205,25 @@ public class Partida {
 
     for (int i = 0; i < max; i++) {
 
-      // D1
+      // Diagonal 1 (direita)
       if (tabuleiro.getPosition(d1x + i, i) != player) {
         d1counter = 0; // reseta a contagem
       } else {
         d1counter++;
       }
-      // caso haja algum diferente na sequência
+      // Diagonal 2 (esquerda)
       if (tabuleiro.getPosition(d2x - i, i) != player) {
         d2counter = 0; // reseta a contagem
       } else {
         d2counter++;
       }
 
-      if (d1counter >= 4 || d2counter >= 4) // se ele conseguir contar 4 em sequência
-        return true;
+      // se ele conseguir contar 4 em sequência em qualquer diagonal
+      if (d1counter >= 4 || d2counter >= 4)
+        return true; // vitória
     }
 
-    return false;
+    return false; // derrota
   }
   // #endregion checkWin
 }
