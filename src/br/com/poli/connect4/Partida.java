@@ -132,8 +132,12 @@ public class Partida {
   }
 
   protected boolean checkWinDiagonais(int x, int y) {
-    int player = tabuleiro.getPosition(x, y);
+    int player = tabuleiro.getPosition(x, y); // valor pra comparar
     int max = tabuleiro.getLengthY();
+
+    // X das diagonais quando Y = 0;
+    // Ex: se a pessoa joga em (3,2) o ponto superior esquerdo da diagonal vai ser
+    // (1,0) e o direito vai ser (5,0)
     int d1x = x - y;
     int d2x = x + y;
 
@@ -142,24 +146,25 @@ public class Partida {
 
     for (int i = 0; i < max; i++) {
 
-      // D1
+      // Diagonal 1 (direita)
       if (tabuleiro.getPosition(d1x + i, i) != player) {
         d1counter = 0; // reseta a contagem
       } else {
         d1counter++;
       }
-      // caso haja algum diferente na sequência
+      // Diagonal 2 (esquerda)
       if (tabuleiro.getPosition(d2x - i, i) != player) {
         d2counter = 0; // reseta a contagem
       } else {
         d2counter++;
       }
 
-      if (d1counter >= 4 || d2counter >= 4) // se ele conseguir contar 4 em sequência
-        return true;
+      // se ele conseguir contar 4 em sequência em qualquer diagonal
+      if (d1counter >= 4 || d2counter >= 4)
+        return true; // vitória
     }
 
-    return false;
+    return false; // derrota
   }
   // #endregion checkWin
 }
