@@ -72,7 +72,7 @@ public class Tabuleiro {
   }
 
   public int fazerJogada(int position, int jogador) throws FullColumnException {
-    if (position >= matrizTabuleiro.length) {
+    if (position >= matrizTabuleiro[0].length) {
       throw new IllegalArgumentException(String.format(
           "[Posição Inválida] Posição deve ser maior ou igual à %i e menor que %i.", 0, matrizTabuleiro.length));
     }

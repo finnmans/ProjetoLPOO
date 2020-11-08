@@ -36,8 +36,15 @@ public class Main {
     while (!empate && vencedor == null) {
       System.out.printf("%s | Digite a posição (0-6): ", partida.getJogadorAtual());
       int x = scanner.nextInt();
-      System.out.println(partida.fazerJogada(x));
 
+      try {
+        partida.fazerJogada(x);
+      } catch (Exception e) {
+        System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
+        continue;
+      }
+
+      System.out.println(partida.getTabuleiroString());
       vencedor = partida.getVencedor();
       empate = partida.isEmpate();
     }

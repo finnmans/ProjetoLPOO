@@ -10,6 +10,8 @@ package br.com.poli.connect4;
 
 import java.util.Random;
 
+import br.com.poli.exceptions.FullColumnException;
+
 public class Partida {
   private Jogador[] jogadores;
   private Jogador jogadorAtual;
@@ -68,20 +70,16 @@ public class Partida {
     return tabuleiro.toString();
   }
 
-  public String fazerJogada(int x) {
+  public void fazerJogada(int x) throws FullColumnException {
     int playerNum = jogadorAtual.getNumero();
-    int y = tabuleiro.fazerJogada(x, playerNum);
 
-    if (y == -1)
-      return tabuleiro.toString() + "\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n";
+    int y = tabuleiro.fazerJogada(x, playerNum);
 
     if (checkWin(x, y)) {
       vencedor = jogadorAtual;
     } else {
       trocarJogadores();
     }
-
-    return tabuleiro.toString();
   }
 
   public boolean isEmpate() {
