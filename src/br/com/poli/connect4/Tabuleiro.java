@@ -126,6 +126,8 @@ public class Tabuleiro {
           "[Posição Inválida] Posição deve ser maior ou igual à %i e menor que %i.", 0, matrizTabuleiro.length));
     }
 
+    ultimaPosicaoJogada.setX(position);
+
     for (int i = (matrizTabuleiro.length - 1); i >= 0; i--) {
       int linhaAtual = matrizTabuleiro[i][position];
 
@@ -133,13 +135,12 @@ public class Tabuleiro {
       if (linhaAtual == 0) {
         matrizTabuleiro[i][position] = jogador;
 
-        ultimaPosicaoJogada.x = position;
-        ultimaPosicaoJogada.y = i;
+        ultimaPosicaoJogada.setY(i);
         return i;
       }
     }
 
-    ultimaPosicaoJogada.y = -1;
+    ultimaPosicaoJogada.setY(-1);
     throw new FullColumnException("[Posição Inválida] A coluna já está preenchida.");
   }
 
