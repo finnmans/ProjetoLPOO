@@ -9,15 +9,24 @@
 package br.com.poli;
 
 import br.com.poli.connect4.*;
+import br.com.poli.connect4.gui.TelaCadastro;
+
 import java.util.Scanner;
 
 public class Main {
 
   public static void main(String[] args) {
+    
+    var telCadastro = new TelaCadastro();
+    telCadastro.init(new String[]{});
+    //    run();
+  }
+  
+  public static void run(){
     String jog1;
     String jog2;
     Scanner scanner = new Scanner(System.in);
-    
+
     Jogador vencedor = null;
     boolean empate = false;
     // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";

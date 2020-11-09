@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import java.lang.*?>-->
+<!--<?import java.util.*?>-->
+<!--<?import javafx.scene.*?>-->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.poli.connect4.gui.TelaCadastro"
+            prefHeight="400.0" prefWidth="600.0">
+  <Label id="label" layoutX="126" layoutY="120" text="Count: 0" minHeight="16" minWidth="69" prefHeight="16" prefWidth="69" fx:id="label" />
+  <Button id="button" layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
+</AnchorPane>
