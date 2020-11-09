@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<!--<?import javafx.scene.image.Image?>-->
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -45,7 +45,7 @@
   </MenuBar>
   <AnchorPane  prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
     <ImageView fitHeight="589.0" fitWidth="439.0" layoutX="1.0">
-<!--      <Image url="@../1x/TDAAtivo%2017.png"/>-->
+    <Image url="@../PNGs/Tab+FundoAtivo 8.png"/>
     </ImageView>
     <Button layoutX="65.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="1"/>
     <Button layoutX="114.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="2"/>
