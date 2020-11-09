@@ -1,60 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<!--<?import javafx.scene.image.Image?>-->
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="587.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/11.0.1">
-  <MenuBar prefHeight="0.0" prefWidth="440.0" VBox.vgrow="NEVER">
-    <Menu mnemonicParsing="false" text="File">
-      <MenuItem mnemonicParsing="false" text="New"/>
-      <MenuItem mnemonicParsing="false" text="Open…"/>
-      <Menu mnemonicParsing="false" text="Open Recent"/>
-      <SeparatorMenuItem mnemonicParsing="false"/>
-      <MenuItem mnemonicParsing="false" text="Close"/>
-      <MenuItem mnemonicParsing="false" text="Save"/>
-      <MenuItem mnemonicParsing="false" text="Save As…"/>
-      <MenuItem mnemonicParsing="false" text="Revert"/>
-      <SeparatorMenuItem mnemonicParsing="false"/>
-      <MenuItem mnemonicParsing="false" text="Preferences…"/>
-      <SeparatorMenuItem mnemonicParsing="false"/>
-      <MenuItem mnemonicParsing="false" text="Quit"/>
-    </Menu>
-    <Menu mnemonicParsing="false" text="Edit">
-      <MenuItem mnemonicParsing="false" text="Undo"/>
-      <MenuItem mnemonicParsing="false" text="Redo"/>
-      <SeparatorMenuItem mnemonicParsing="false"/>
-      <MenuItem mnemonicParsing="false" text="Cut"/>
-      <MenuItem mnemonicParsing="false" text="Copy"/>
-      <MenuItem mnemonicParsing="false" text="Paste"/>
-      <MenuItem mnemonicParsing="false" text="Delete"/>
-      <SeparatorMenuItem mnemonicParsing="false"/>
-      <MenuItem mnemonicParsing="false" text="Select All"/>
-      <MenuItem mnemonicParsing="false" text="Unselect All"/>
-    </Menu>
-    <Menu mnemonicParsing="false" text="Help">
-      <MenuItem mnemonicParsing="false" text="About MyHelloApp"/>
-    </Menu>
-  </MenuBar>
-  <AnchorPane  prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
+<VBox prefHeight="587.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.poli.connect4.gui.telas.TelaCadastroController">
+  <AnchorPane prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
     <ImageView fitHeight="589.0" fitWidth="439.0" layoutX="1.0">
-      <!--      <Image url="@../1x/TDAAtivo%2017.png"/>-->
+            <Image url="@/br/com/poli/connect4/gui/telas/images/FundoTabuleiroAtivo 5.png" />
     </ImageView>
-    <Button layoutX="65.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="1"/>
-    <Button layoutX="114.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="2"/>
-    <Button layoutX="161.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="3"/>
-    <Button layoutX="208.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="4"/>
-    <Button layoutX="254.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="5"/>
-    <Button layoutX="303.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="6"/>
-    <Button layoutX="353.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="7"/>
-    <TextFlow layoutX="133.0" layoutY="422.0" prefHeight="48.0" prefWidth="200.0"/>
-    <TextFlow layoutX="133.0" layoutY="480.0" prefHeight="55.0" prefWidth="200.0"/>
+      <ImageView fitHeight="63.0" fitWidth="62.0" layoutX="69.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/br/com/poli/connect4/gui/telas/images/PecaVermelhaAtivo 2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="62.0" layoutX="69.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/br/com/poli/connect4/gui/telas/images/PecaAzulAtivo 3.png" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="140.0" layoutY="149.0" prefHeight="37.0" prefWidth="200.0" fx:id="tFieldP1" />
+      <TextArea layoutX="140.0" layoutY="275.0" prefHeight="37.0" prefWidth="200.0" fx:id="tFieldP2"/>
+      <Button layoutY="466.0" onAction="#handleStart" fx:id="mainButton"  mnemonicParsing="false" text="Começar Jogo" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="157.0" layoutY="106.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="233.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 2">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
   </AnchorPane>
 </VBox>

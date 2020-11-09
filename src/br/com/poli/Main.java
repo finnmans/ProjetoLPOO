@@ -15,12 +15,17 @@ import java.util.Scanner;
 
 public class Main {
 
+  
   public static void main(String[] args) {
     
     var janelaGui = new JanelaPrincipal();
-    
     janelaGui.setUp();
   }
+  
+  public static Partida makePartida(String jog1, String jog2){
+    return new Partida(jog1,jog2);
+  }
+  
   
   public static void run(){
     String jog1;

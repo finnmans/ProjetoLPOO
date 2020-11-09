@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox prefHeight="587.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.poli.connect4.gui.telas.TelaJogoController">
+  <AnchorPane  prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
+    <ImageView fitHeight="589.0" fitWidth="439.0" layoutX="1.0">
+      <Image url="@/br/com/poli/connect4/gui/telas/images/Tab+FundoAtivo 8.png"/>
+    </ImageView>
+    <Button layoutX="65.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0"  id="b1" text="1"/>
+    <Button layoutX="114.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b2" text="2"/>
+    <Button layoutX="161.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b3" text="3"/>
+    <Button layoutX="208.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b4" text="4"/>
+    <Button layoutX="254.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b5" text="5"/>
+    <Button layoutX="303.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b6" text="6"/>
+    <Button layoutX="353.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" id="b7" text="7"/>
+    <TextFlow layoutX="133.0" layoutY="422.0" prefHeight="48.0" prefWidth="200.0"/>
+    <TextFlow layoutX="133.0" layoutY="480.0" prefHeight="55.0" prefWidth="200.0"/>
+  </AnchorPane>
+</VBox>
