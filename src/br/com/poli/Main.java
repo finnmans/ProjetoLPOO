@@ -1,9 +1,9 @@
-/**
- *  Projeto de LPOO
- * 
- *   Dupla:
- *    Alexandre Candido Souza
- *    Felipe Vasconcelos
+/*
+   Projeto de LPOO
+  
+    Dupla:
+     Alexandre Candido Souza
+     Felipe Vasconcelos
  */
 
 package br.com.poli;
@@ -17,6 +17,7 @@ public class Main {
     String jog1;
     String jog2;
     Scanner scanner = new Scanner(System.in);
+    
     Jogador vencedor = null;
     boolean empate = false;
     // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";
