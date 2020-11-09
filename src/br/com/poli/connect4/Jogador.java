@@ -1,9 +1,9 @@
-/**
- *  Projeto de LPOO
- * 
- *   Dupla:
- *    Alexandre Candido Souza
- *    Felipe Vasconcelos
+/*
+   Projeto de LPOO
+  
+    Dupla:
+     Alexandre Candido Souza
+     Felipe Vasconcelos
  */
 
 package br.com.poli.connect4;

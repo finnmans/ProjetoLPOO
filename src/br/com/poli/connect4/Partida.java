@@ -1,16 +1,16 @@
-/**
- *  Projeto de LPOO
- * 
- *   Dupla:
- *    Alexandre Candido Souza
- *    Felipe Vasconcelos
+/*
+   Projeto de LPOO
+  
+    Dupla:
+     Alexandre Candido Souza
+     Felipe Vasconcelos
  */
 
 package br.com.poli.connect4;
 
 import java.util.Random;
 
-import br.com.poli.exceptions.FullColumnException;
+import br.com.poli.connect4.exceptions.FullColumnException;
 
 public class Partida {
   private Jogador[] jogadores;

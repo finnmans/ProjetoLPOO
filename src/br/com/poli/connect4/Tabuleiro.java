@@ -1,14 +1,14 @@
-/**
- *  Projeto de LPOO
- * 
- *   Dupla:
- *    Alexandre Candido Souza
- *    Felipe Vasconcelos
+/*
+   Projeto de LPOO
+  
+    Dupla:
+     Alexandre Candido Souza
+     Felipe Vasconcelos
  */
 
 package br.com.poli.connect4;
 
-import br.com.poli.exceptions.FullColumnException;
+import br.com.poli.connect4.exceptions.FullColumnException;
 import br.com.poli.utils.Vector2Int;
 
 public class Tabuleiro {
@@ -36,7 +36,7 @@ public class Tabuleiro {
           valorLinha = "\u001B[35m" + valorLinha + "\u001B[0m";
         // Pinta o carácter no console com {cor roxa} + {valorLinha} + {corBranca}.
 
-        tBuilder.append(" " + valorLinha + " |");
+        tBuilder.append(" ").append(valorLinha).append(" |");
       }
 
       tBuilder.append("\n|---.---.---.---.---.---.---|\n");// linhas de separação
@@ -99,9 +99,9 @@ public class Tabuleiro {
    * @return True caso o tabuleiro não possua nenhuma casa vaga (0)
    */
   public boolean isCheio() {
-    for (int i = 0; i < matrizTabuleiro.length; i++) {
+    for (int[] ints : matrizTabuleiro) {
       for (int j = 0; j < matrizTabuleiro[0].length; j++) {
-        if (matrizTabuleiro[i][j] == 0)
+        if (ints[j] == 0)
           return false;
       }
     }
@@ -123,7 +123,7 @@ public class Tabuleiro {
   public int fazerJogada(int position, int jogador) throws FullColumnException {
     if (position >= matrizTabuleiro[0].length) {
       throw new IllegalArgumentException(String.format(
-          "[Posição Inválida] Posição deve ser maior ou igual à %i e menor que %i.", 0, matrizTabuleiro.length));
+          "[Posição Inválida] Posição deve ser maior ou igual à %d e menor que %d.", 0, matrizTabuleiro.length));
     }
 
     ultimaPosicaoJogada.setX(position);

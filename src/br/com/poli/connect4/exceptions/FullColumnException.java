@@ -1,4 +1,4 @@
-package br.com.poli.exceptions;
+package br.com.poli.connect4.exceptions;
 
 /**
  * FullColumnException
