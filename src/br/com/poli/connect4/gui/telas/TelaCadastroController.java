@@ -1,6 +1,7 @@
 package br.com.poli.connect4.gui.telas;
 
 import br.com.poli.connect4.gui.JanelaPrincipal;
+import br.com.poli.connect4.singletons.PartidaBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +28,7 @@ public class TelaCadastroController implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    System.out.println("Tela de Cadastro");
+    System.out.println("[Tela de Cadastro] Inicializando");
   }
 
   public void handleStart(ActionEvent actionEvent) throws IOException {
@@ -40,7 +41,10 @@ public class TelaCadastroController implements Initializable {
         "Form Error!", "O Jogador 2 precisa de um nome");
       return;
     }
-    //
+
+    var builder = PartidaBuilder.getInstance();
+    builder.setUserName(tFieldP1.getText(),0);
+    builder.setUserName(tFieldP2.getText(),1);
     
     Parent rootGame = FXMLLoader.load(getClass().getResource("TelaJogo.fxml"));
     JanelaPrincipal.setScene(rootGame);
