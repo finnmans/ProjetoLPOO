@@ -16,7 +16,7 @@
 <VBox prefHeight="587.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.poli.connect4.gui.telas.TelaCadastroController">
   <AnchorPane prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
     <ImageView fitHeight="589.0" fitWidth="439.0" layoutX="1.0">
-            <Image url="@/br/com/poli/connect4/gui/telas/images/FundoTabuleiroAtivo 5.png" />
+            <Image url="@/br/com/poli/connect4/gui/telas/images/FundoAtivo 9.png" />
     </ImageView>
       <ImageView fitHeight="63.0" fitWidth="62.0" layoutX="69.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
          <image>
