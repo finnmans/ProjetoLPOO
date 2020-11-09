@@ -9,7 +9,7 @@
 package br.com.poli;
 
 import br.com.poli.connect4.*;
-import br.com.poli.connect4.gui.TelaCadastro;
+import br.com.poli.connect4.gui.JanelaPrincipal;
 
 import java.util.Scanner;
 
@@ -17,9 +17,9 @@ public class Main {
 
   public static void main(String[] args) {
     
-    var telCadastro = new TelaCadastro();
-    telCadastro.init(new String[]{});
-    //    run();
+    var janelaGui = new JanelaPrincipal();
+    
+    janelaGui.setUp();
   }
   
   public static void run(){
