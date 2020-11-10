@@ -56,7 +56,7 @@
       <children>
             <ImageView fitHeight="308.0" fitWidth="626.0">
                <image>
-                  <Image url="@images/FundoAtivo%209.png" />
+                  <Image url="/br/com/poli/connect4/gui/telas/images/FundoAtivo 9.png" />
                </image>
             </ImageView>
             <Label layoutX="172.0" layoutY="52.0" prefHeight="93.0" prefWidth="283.0" text="WINNER!!">
@@ -71,12 +71,12 @@
             </Label>
             <ImageView layoutX="151.0" layoutY="176.0">
                <image>
-                  <Image url="@images/PecaAzulAtivo%203.png" />
+                  <Image url="@/br/com/poli/connect4/gui/telas/images/PecaAzulAtivo 3.png" />
                </image>
             </ImageView>
             <ImageView layoutX="434.0" layoutY="176.0">
                <image>
-                  <Image url="@images/PecaAzulAtivo%203.png" />
+                  <Image url="@/br/com/poli/connect4/gui/telas/images/PecaAzulAtivo 3.png" />
                </image>
             </ImageView>
       </children>

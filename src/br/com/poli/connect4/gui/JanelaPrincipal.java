@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class JanelaPrincipal extends Application {
   public static final int WIDTH  = 440;
-  public static final int HEIGHT = 590; 
+  public static final int HEIGHT = 590;
   public static Stage WINDOW;
   
   public void setUp(){

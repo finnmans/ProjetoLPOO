@@ -29,8 +29,8 @@ public class TelaJogoController implements Initializable {
     var builder = PartidaBuilder.getInstance();
     //Font font = Font.loadFont("file:gui/fonts/Blambot Casual Bold.ttf",32);
     //Font.loadFont(CustomFontApp.class.getResource("Blambot Casual Bold.ttf").toExternalForm(), 10);
-   j1.setText(builder.getUserName(0));
-   j2.setText(builder.getUserName(1));
+  // j1.setText(builder.getUserName(0));
+  // j2.setText(builder.getUserName(1));
    //j1.setFont(font);
    //j2.setFont(font);
     System.out.println("[Tela DeJogo] Inicializando");
