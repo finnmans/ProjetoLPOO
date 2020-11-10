@@ -89,9 +89,7 @@ public class Tabuleiro {
   /**
    * @return Inteiro com a quantidade de linhas do tabuleiro.
    */
-  public int getLengthY() {
-    return this.matrizTabuleiro.length;
-  }
+  public int getLengthY() { return this.matrizTabuleiro.length; }
 
   /**
    * Checa se existe algum valor vázio (0) na mátriz do tabuleiro

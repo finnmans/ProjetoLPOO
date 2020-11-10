@@ -13,13 +13,13 @@ import java.util.Random;
 import br.com.poli.connect4.exceptions.FullColumnException;
 
 public class Partida {
-  private Jogador[] jogadores;
+  private final Jogador[] jogadores;
   private Jogador jogadorAtual;
   private Jogador vencedor;
   private int jogadorAtualIndex;
   Tabuleiro tabuleiro = new Tabuleiro();
 
-  // #region Getters e Setters
+  //#region Getters e Setters
 
   protected void setJogadorAtual(Jogador jogador) {
     this.jogadorAtual = jogador;
@@ -45,7 +45,10 @@ public class Partida {
     return this.vencedor;
   }
 
-  // #endregion
+  public int getAltura(){ return tabuleiro.getLengthY();}
+
+  public int getLargura(){ return tabuleiro.getLengthX();} 
+  //#endregion
 
   // #region Construtores
   public Partida(String nomeJogador1, String nomeJogador2) {
