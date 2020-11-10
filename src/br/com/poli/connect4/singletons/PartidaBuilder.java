@@ -27,9 +27,9 @@ public final class PartidaBuilder {
     return this.UserNames[index];
   }
   
-  public Partida MakePartida() throws InstantiationException {
+  public Partida MakePartida() {
     if(UserNames[0].isEmpty() || UserNames[1].isEmpty()){
-      throw new InstantiationException("É preciso definir o nome dos dois jogadores");
+      throw new NullPointerException("É preciso definir o nome dos dois jogadores");
     }
     
     return new Partida(UserNames[0],UserNames[1]);

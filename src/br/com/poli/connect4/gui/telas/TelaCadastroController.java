@@ -34,7 +34,7 @@ public class TelaCadastroController implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    System.out.println("[Tela de Cadastro] Inicializando");
+    System.out.println("[TelaCadastro] Inicializando");
   }
 
   public void handleStart(ActionEvent actionEvent) throws IOException {
