@@ -10,10 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-
+import javafx.scene.text.Text;
+import javafx.scene.text.Font;
 import javafx.stage.Window;
-
+import javafx.scene.effect.DropShadow;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +27,10 @@ public class TelaCadastroController implements Initializable {
   private TextArea tFieldP2;
   @FXML
   private TextArea tFieldP1;
+  @FXML
+  private Label j1;
+  @FXML 
+  private Label j2;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -41,10 +47,10 @@ public class TelaCadastroController implements Initializable {
         "Form Error!", "O Jogador 2 precisa de um nome");
       return;
     }
-
     var builder = PartidaBuilder.getInstance();
     builder.setUserName(tFieldP1.getText(),0);
     builder.setUserName(tFieldP2.getText(),1);
+    
     
     /*
     System.out.println(tFieldP1.getText()); //testes
@@ -52,7 +58,7 @@ public class TelaCadastroController implements Initializable {
     */ 
     Parent rootGame = FXMLLoader.load(getClass().getResource("TelaJogo.fxml"));
     JanelaPrincipal.setScene(rootGame);
-
+ 
   }
 
   

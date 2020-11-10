@@ -54,7 +54,7 @@
     <Button fx:id="5" layoutX="254.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="5" />
     <Button fx:id="6" layoutX="303.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="6" />
     <Button fx:id="7" layoutX="353.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="7" />
-      <Label fx:id="j1" layoutX="135.0" layoutY="422.0" prefHeight="46.0" prefWidth="239.0" />
-      <Label fx:id="j2" layoutX="135.0" layoutY="482.0" prefHeight="46.0" prefWidth="239.0" />
+      <Label fx:id="j1" layoutX="135.0" layoutY="422.0" prefHeight="46.0" prefWidth="239.0" text="jogador1" />
+      <Label fx:id="j2" layoutX="135.0" layoutY="482.0" prefHeight="46.0" prefWidth="239.0" text="jogador2" />
   </AnchorPane>
 </VBox>
