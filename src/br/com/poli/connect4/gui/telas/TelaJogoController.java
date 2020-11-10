@@ -9,9 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 
 import javafx.scene.image.ImageView;
+
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,8 +24,10 @@ public class TelaJogoController implements Initializable {
   public Label j1;
   public Label j2;
   public Group grupoPecas;
-  public ImageView[][] pecas;
-  Partida partida;
+  private ImageView[][] pecas;
+  private Partida partida;
+  private Image p1peca;
+  private Image p2peca;
   
 
   public void log(PartidaBuilder builder){
@@ -52,6 +58,12 @@ public class TelaJogoController implements Initializable {
       view.setVisible(false);
     }
     
+
+    p1peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaVermAtivo-7.png").toString());
+    p2peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaAzulAtivo-6.png").toString());
+
+
+  setPecaImage(1,5,1);
     togglePeca(1,5,true);
     
     //printar no console
@@ -65,6 +77,10 @@ public class TelaJogoController implements Initializable {
     j1.setText(builder.getUserName(0));
     j2.setText(builder.getUserName(1));
 
+  }
+  
+  private void setPecaImage(int x, int y, int jogador){
+    pecas[y][x].setImage(jogador == 1 ? p1peca : p2peca);
   }
   
   private void togglePeca(int x, int y, boolean active){
