@@ -10,8 +10,9 @@ package br.com.poli;
 
 import br.com.poli.connect4.*;
 import br.com.poli.connect4.gui.JanelaPrincipal;
-
 import java.util.Scanner;
+import br.com.poli.connect4.gui.telas.TelaCadastroController;
+import br.com.poli.connect4.singletons.PartidaBuilder;
 
 public class Main {
 
@@ -31,17 +32,20 @@ public class Main {
     String jog1;
     String jog2;
     Scanner scanner = new Scanner(System.in);
-
+    var users = new PartidaBuilder();
     Jogador vencedor = null;
     boolean empate = false;
     // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";
 
     System.out.println("Jogador 1:");
-    jog1 = scanner.next();
+    jog1 = scanner.next();//users.getUserName(0);
 
     System.out.println("Jogador 2:");
-    jog2 = scanner.next();
-
+    jog2 = scanner.next();//users.getUserName(1);
+    
+    System.out.println(jog1);
+    System.out.println(jog2);
+    
     Partida partida = new Partida(jog1, jog2);
 
     System.out.printf("%n%-20s: começará jogando!%n", partida.getJogadorAtual());

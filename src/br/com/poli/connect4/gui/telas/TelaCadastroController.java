@@ -46,6 +46,10 @@ public class TelaCadastroController implements Initializable {
     builder.setUserName(tFieldP1.getText(),0);
     builder.setUserName(tFieldP2.getText(),1);
     
+    /*
+    System.out.println(tFieldP1.getText()); //testes
+    System.out.println(tFieldP2.getText());
+    */ 
     Parent rootGame = FXMLLoader.load(getClass().getResource("TelaJogo.fxml"));
     JanelaPrincipal.setScene(rootGame);
 

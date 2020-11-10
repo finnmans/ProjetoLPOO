@@ -6,7 +6,7 @@ public final class PartidaBuilder {
   private static PartidaBuilder INSTANCE = null;
   private final String[] UserNames;
   
-  private PartidaBuilder(){ 
+  public PartidaBuilder(){ 
     UserNames = new String[]{"",""};
   }
 

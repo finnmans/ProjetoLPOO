@@ -23,7 +23,7 @@ public class JanelaPrincipal extends Application {
   public void start(Stage primaryStage) throws IOException {
     WINDOW = primaryStage;
     Parent rootCadastro = FXMLLoader.load(getClass().getResource("telas/TelaCadastro.fxml"));
-
+    WINDOW.setResizable(false);
     WINDOW.setTitle("LIG 4");
     WINDOW.setScene(makeScene(rootCadastro));
     WINDOW.show();
