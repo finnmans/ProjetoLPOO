@@ -98,33 +98,30 @@ public class TelaJogoController implements Initializable {
     int value = Integer.parseInt(data);
     System.out.println(data);
 
-    String jog1;
-    String jog2;
+    int y;
+    
     //Scanner scanner = new Scanner(System.in);
     var users = new PartidaBuilder();
     Jogador vencedor = null;
     boolean empate = false;
     // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";
     
-    jog1 = users.getUserName(0);//users.getUserName(0);
-    
-    jog2 = users.getUserName(1);//users.getUserName(1);
-    
-    
     if (!empate && vencedor == null) {
       
-
-      System.out.printf("%n%-20s: começará jogando!%n", partida.getJogadorAtual());
       System.out.println(String.format("%-40s%n", " ").replace(" ", "-")); // Printar a linha no tamanho certo
       System.out.printf("%s | Digite a posição (0-6): ", partida.getJogadorAtual());
       int x = value;
 
       try {
+        y = partida.fazerJogada(x);
+        setPecaImage(x,y,partida.getJogadorAtual().getNumero());
+        togglePeca(x,y,true);
         partida.fazerJogada(x);
       } catch (Exception e) {
         System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
-       
       }
+      
+     // setPecaImage(x,y,partida.getJogadorAtual());
 
       System.out.println(partida.getTabuleiroString());
       vencedor = partida.getVencedor();
