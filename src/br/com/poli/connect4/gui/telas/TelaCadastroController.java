@@ -24,8 +24,7 @@ import java.util.ResourceBundle;
 
 
 public class TelaCadastroController implements Initializable {
-  @FXML
-  private Button mainButton;
+
   @FXML
   private TextArea tFieldP2;
   @FXML
@@ -43,7 +42,7 @@ public class TelaCadastroController implements Initializable {
     joga2.setFont(font);
     DropShadow shadow = new DropShadow();
     shadow.setOffsetY(8.0);
-    //Setting the effect to the text
+
     joga1.setEffect(shadow);
     joga2.setEffect(shadow);
   }

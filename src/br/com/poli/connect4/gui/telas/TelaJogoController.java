@@ -151,13 +151,13 @@ public class TelaJogoController implements Initializable {
 
     if (vencedor != null) {
       JanelaPrincipal.showAlert(Alert.AlertType.INFORMATION, JanelaPrincipal.WINDOW.getScene().getWindow(), "VITÓRIA",
-          vencedor + " VENCEU!!");
+          vencedor + " VENCEU!!",true);
       System.out.printf("%n %s VENCEU!!%n", vencedor);
     }
 
     if (empate) {
       JanelaPrincipal.showAlert(Alert.AlertType.WARNING, JanelaPrincipal.WINDOW.getScene().getWindow(), "EMPATE!",
-          "ITS A TIE!!");
+          "ITS A TIE!!",true);
       System.out.println("ITS A TIE!");
     }
 
