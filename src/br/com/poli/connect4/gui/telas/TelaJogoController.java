@@ -103,44 +103,10 @@ public class TelaJogoController implements Initializable {
   }
   
   private void changeColorPlayer(int jogadorat){ 
-    (jogadorat==1? j1:j2).setTextFill(Color.GRAY);
-    (jogadorat==1? j2:j1).setTextFill(Color.WHITE);
+    (jogadorat==1? j2:j1).setTextFill(Color.GRAY);
+    (jogadorat==1? j1:j2).setTextFill(Color.WHITE);
   }
-
-  public void makePlay(ActionEvent event) {
-    Node node = (Node) event.getSource();
-    String data = (String) node.getUserData();
-    int value = Integer.parseInt(data);
-    System.out.println(data);
-    int y;
-    
-    //Scanner scanner = new Scanner(System.in);
-    var users = new PartidaBuilder();
-    Jogador vencedor = null;
-    boolean empate = false;
-    // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";
-    
-    if (!empate && vencedor == null) {
-      
-      System.out.println(String.format("%-40s%n", " ").replace(" ", "-")); // Printar a linha no tamanho certo
-      System.out.printf("%s | Digite a posição (0-6): ", partida.getJogadorAtual());
-      int x = value;
-
-      try {
-        y = partida.fazerJogada(x);
-        setPecaImage(x,y,partida.getJogadorAtual().getNumero());
-        togglePeca(x,y,true);
-        changeColorPlayer(partida.getJogadorAtual().getNumero());
-      } catch (Exception e) {
-        System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
-      }
-      
-     // setPecaImage(x,y,partida.getJogadorAtual());
-
-      System.out.println(partida.getTabuleiroString());
-      vencedor = partida.getVencedor();
-      empate = partida.isEmpate();
-      
+  
 
   public void makePlay(ActionEvent event) throws IOException {
     Node node = (Node) event.getSource();
@@ -157,6 +123,9 @@ public class TelaJogoController implements Initializable {
 
     try {
       y = partida.fazerJogada(x);
+      setPecaImage(x,y,partida.getJogadorAtual().getNumero());
+      togglePeca(x,y,true);
+      changeColorPlayer(partida.getJogadorAtual().getNumero());
     } catch (Exception e) {
       System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
 
