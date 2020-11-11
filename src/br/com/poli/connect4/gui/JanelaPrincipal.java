@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import java.io.IOException;
@@ -22,10 +24,11 @@ public class JanelaPrincipal extends Application {
   @Override
   public void start(Stage primaryStage) throws IOException {
     WINDOW = primaryStage;
+    primaryStage.initStyle(StageStyle.UTILITY);
     Parent rootCadastro = FXMLLoader.load(getClass().getResource("telas/TelaCadastro.fxml"));
     WINDOW.setResizable(false);
     WINDOW.setTitle("LIG 4");
-    WINDOW.setScene(makeScene(rootCadastro));
+    setScene(makeScene(rootCadastro));
     WINDOW.show();
   }
   
@@ -37,6 +40,7 @@ public class JanelaPrincipal extends Application {
   }
   
   public static void setScene(Scene scene){
+    scene.setFill(Color.TRANSPARENT);
     WINDOW.setScene(scene);
   }
 
