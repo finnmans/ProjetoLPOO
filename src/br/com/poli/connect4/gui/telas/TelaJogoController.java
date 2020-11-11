@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import javafx.scene.image.ImageView;
@@ -88,7 +89,7 @@ public class TelaJogoController implements Initializable {
     DropShadow shadow = new DropShadow();
     shadow.setOffsetY(8.0);
     // Setting the effect to the text
-
+    
     j1.setEffect(shadow);
     j2.setEffect(shadow);
   }
@@ -100,6 +101,46 @@ public class TelaJogoController implements Initializable {
   private void togglePeca(int x, int y, boolean active) {
     pecas[y][x].setVisible(active);
   }
+  
+  private void changeColorPlayer(int jogadorat){ 
+    (jogadorat==1? j1:j2).setTextFill(Color.GRAY);
+    (jogadorat==1? j2:j1).setTextFill(Color.WHITE);
+  }
+
+  public void makePlay(ActionEvent event) {
+    Node node = (Node) event.getSource();
+    String data = (String) node.getUserData();
+    int value = Integer.parseInt(data);
+    System.out.println(data);
+    int y;
+    
+    //Scanner scanner = new Scanner(System.in);
+    var users = new PartidaBuilder();
+    Jogador vencedor = null;
+    boolean empate = false;
+    // String msgBaseJogada = "%-20s: jogou na coluna: %x %n";
+    
+    if (!empate && vencedor == null) {
+      
+      System.out.println(String.format("%-40s%n", " ").replace(" ", "-")); // Printar a linha no tamanho certo
+      System.out.printf("%s | Digite a posição (0-6): ", partida.getJogadorAtual());
+      int x = value;
+
+      try {
+        y = partida.fazerJogada(x);
+        setPecaImage(x,y,partida.getJogadorAtual().getNumero());
+        togglePeca(x,y,true);
+        changeColorPlayer(partida.getJogadorAtual().getNumero());
+      } catch (Exception e) {
+        System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
+      }
+      
+     // setPecaImage(x,y,partida.getJogadorAtual());
+
+      System.out.println(partida.getTabuleiroString());
+      vencedor = partida.getVencedor();
+      empate = partida.isEmpate();
+      
 
   public void makePlay(ActionEvent event) throws IOException {
     Node node = (Node) event.getSource();
