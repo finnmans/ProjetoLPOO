@@ -14,40 +14,9 @@
 
 <?import javafx.scene.Group?>
 <VBox prefHeight="614.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.poli.connect4.gui.telas.TelaJogoController">
-  <MenuBar prefHeight="0.0" prefWidth="440.0" VBox.vgrow="NEVER">
-    <Menu mnemonicParsing="false" text="File">
-      <MenuItem mnemonicParsing="false" text="New" />
-      <MenuItem mnemonicParsing="false" text="Open…" />
-      <Menu mnemonicParsing="false" text="Open Recent" />
-      <SeparatorMenuItem mnemonicParsing="false" />
-      <MenuItem mnemonicParsing="false" text="Close" />
-      <MenuItem mnemonicParsing="false" text="Save" />
-      <MenuItem mnemonicParsing="false" text="Save As…" />
-      <MenuItem mnemonicParsing="false" text="Revert" />
-      <SeparatorMenuItem mnemonicParsing="false" />
-      <MenuItem mnemonicParsing="false" text="Preferences…" />
-      <SeparatorMenuItem mnemonicParsing="false" />
-      <MenuItem mnemonicParsing="false" text="Quit" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Edit">
-      <MenuItem mnemonicParsing="false" text="Undo" />
-      <MenuItem mnemonicParsing="false" text="Redo" />
-      <SeparatorMenuItem mnemonicParsing="false" />
-      <MenuItem mnemonicParsing="false" text="Cut" />
-      <MenuItem mnemonicParsing="false" text="Copy" />
-      <MenuItem mnemonicParsing="false" text="Paste" />
-      <MenuItem mnemonicParsing="false" text="Delete" />
-      <SeparatorMenuItem mnemonicParsing="false" />
-      <MenuItem mnemonicParsing="false" text="Select All" />
-      <MenuItem mnemonicParsing="false" text="Unselect All" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Help">
-      <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-    </Menu>
-  </MenuBar>
   <AnchorPane prefHeight="323.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
     <ImageView fitHeight="589.0" fitWidth="439.0" layoutX="1.0">
-    <Image url="@images/Tab+FundoAtivo%208.png" />
+    <Image url="@images/Tab+FundoAtivo%208.png"/>
     </ImageView>
     <Button fx:id="1" userData="0" onAction="#makePlay" layoutX="65.0" layoutY="53.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="1" />
     <Button fx:id="2" userData="1" onAction="#makePlay" layoutX="114.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="2" />

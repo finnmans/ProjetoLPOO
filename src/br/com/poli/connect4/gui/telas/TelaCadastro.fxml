@@ -31,12 +31,12 @@
       <TextArea layoutX="140.0" layoutY="149.0" prefHeight="37.0" prefWidth="200.0" fx:id="tFieldP1" />
       <TextArea layoutX="140.0" layoutY="275.0" prefHeight="37.0" prefWidth="200.0" fx:id="tFieldP2"/>
       <Button layoutY="466.0" onAction="#handleStart" fx:id="mainButton"  mnemonicParsing="false" text="Começar Jogo" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
-      <Label layoutX="157.0" layoutY="106.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 1">
+      <Label fx:id="joga1" layoutX="157.0" layoutY="106.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 1" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="157.0" layoutY="233.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 2">
+      <Label fx:id="joga2" layoutX="157.0" layoutY="233.0" prefHeight="30.0" prefWidth="127.0" text="JOGADOR 2" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

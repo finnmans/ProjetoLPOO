@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 
@@ -36,7 +37,6 @@ public class TelaJogoController implements Initializable {
   private Image p1peca;
   private Image p2peca;
 
-
   public void log(PartidaBuilder builder) {
     System.out.println("[TelaJogo] Inicializando");
     System.out.println("[TelaJogo] " + builder.getUserName(0));
@@ -44,18 +44,18 @@ public class TelaJogoController implements Initializable {
     System.out.println("[TelaJogo] \n" + "Tabuleiro Carregado: " + pecas[0].length + "x" + pecas.length);
   }
 
-
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    //Criação da Partida
+    // Criação da Partida
 
     PartidaBuilder builder = PartidaBuilder.getInstance();
     this.partida = builder.MakePartida();
     this.pecas = new ImageView[partida.getAltura()][partida.getLargura()];
     var jogadorInicial = partida.getJogadorAtual();
-    
+
     for (Node node : grupoPecas.getChildren()) {
-      if (!(node instanceof ImageView)) continue;
+      if (!(node instanceof ImageView))
+        continue;
       String[] pos = node.getId().split("-");
       ImageView view = (ImageView) node;
       int x = Integer.parseInt(pos[1]);
@@ -65,20 +65,19 @@ public class TelaJogoController implements Initializable {
       view.setVisible(false);
     }
 
-
     p1peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaVermAtivo-7.png").toString());
     p2peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaAzulAtivo-6.png").toString());
 
-    //printar no console
+    // printar no console
     log(builder);
-    System.out.printf("%n%-20s: começará jogando!%n",jogadorInicial);
+    System.out.printf("%n%-20s: começará jogando!%n", jogadorInicial);
     System.out.println(String.format("%-40s%n", " ").replace(" ", "-")); // Printar a linha no tamanho certo
     System.out.println(partida.getTabuleiroString());
 
     JanelaPrincipal.showAlert(Alert.AlertType.CONFIRMATION, JanelaPrincipal.WINDOW.getScene().getWindow(),
-      "Inicio da Partida", jogadorInicial + ": começará jogando!");
+        "Inicio da Partida", jogadorInicial + ": começará jogando!");
 
-    //GUI SETUP
+    // GUI SETUP
     Font font = Font.loadFont(JanelaPrincipal.class.getResource("fonts/Blambot-Casual-Bold.ttf").toExternalForm(), 32);
 
     j1.setFont(font);
@@ -86,6 +85,12 @@ public class TelaJogoController implements Initializable {
     j1.setText(builder.getUserName(0));
     j2.setText(builder.getUserName(1));
 
+    DropShadow shadow = new DropShadow();
+    shadow.setOffsetY(8.0);
+    // Setting the effect to the text
+
+    j1.setEffect(shadow);
+    j2.setEffect(shadow);
   }
 
   private void setPecaImage(int x, int y, int jogador) {
@@ -96,18 +101,15 @@ public class TelaJogoController implements Initializable {
     pecas[y][x].setVisible(active);
   }
 
-
   public void makePlay(ActionEvent event) throws IOException {
     Node node = (Node) event.getSource();
     String data = (String) node.getUserData();
     int x = Integer.parseInt(data);
     int y = -1;
-      int jogador = partida.getJogadorAtual().getNumero();
-
+    int jogador = partida.getJogadorAtual().getNumero();
 
     Jogador vencedor = null;
     boolean empate = false;
-
 
     System.out.println(String.format("%-40s%n", " ").replace(" ", "-")); // Printar a linha no tamanho certo
     System.out.printf("%s | Digite a posição (0-6): ", partida.getJogadorAtual());
@@ -118,8 +120,8 @@ public class TelaJogoController implements Initializable {
       System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
 
       JanelaPrincipal.showAlert(Alert.AlertType.ERROR, JanelaPrincipal.WINDOW.getScene().getWindow(),
-        "Ei man, isso é ilegal!", "posição Inválida, tente novamente!");
-      
+          "Ei man, isso é ilegal!", "posição Inválida, tente novamente!");
+
       return;
     }
 
@@ -130,34 +132,26 @@ public class TelaJogoController implements Initializable {
     vencedor = partida.getVencedor();
     empate = partida.isEmpate();
 
-    if (!empate && vencedor == null) return;
+    if (!empate && vencedor == null)
+      return;
 
     if (vencedor != null) {
-      JanelaPrincipal.showAlert(Alert.AlertType.INFORMATION, JanelaPrincipal.WINDOW.getScene().getWindow(),
-        "VITÓRIA", vencedor + " VENCEU!!");
+      JanelaPrincipal.showAlert(Alert.AlertType.INFORMATION, JanelaPrincipal.WINDOW.getScene().getWindow(), "VITÓRIA",
+          vencedor + " VENCEU!!");
       System.out.printf("%n %s VENCEU!!%n", vencedor);
     }
 
     if (empate) {
-      JanelaPrincipal.showAlert(Alert.AlertType.WARNING, JanelaPrincipal.WINDOW.getScene().getWindow(),
-        "EMPATE!", "ITS A TIE!!");
+      JanelaPrincipal.showAlert(Alert.AlertType.WARNING, JanelaPrincipal.WINDOW.getScene().getWindow(), "EMPATE!",
+          "ITS A TIE!!");
       System.out.println("ITS A TIE!");
     }
 
     System.out.println("\nJogo acabou"); // ta aq so pra saber se tem erro em algum lugar
-    
+
     Parent rootGame = FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
     JanelaPrincipal.setScene(rootGame);
-  
-  }
-
-    
-
 
   }
-  
-  
-  
-  
-  
-  
+
+}
