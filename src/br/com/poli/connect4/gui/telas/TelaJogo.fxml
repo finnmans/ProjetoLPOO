@@ -65,7 +65,7 @@
             <Font size="36.0" />
          </font></Label>
     <Group fx:id="grupoPecas">
-    <ImageView disable="true" id="5-2" fitHeight="39.0" fitWidth="37.0" layoutX="155.0" layoutY="336.0">
+    <ImageView id="5-2" fitHeight="39.0" fitWidth="37.0" layoutX="155.0" layoutY="336.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
     <ImageView id="5-3" fitHeight="39.0" fitWidth="37.0" layoutX="202.0" layoutY="336.0">
@@ -77,31 +77,31 @@
     <ImageView id="5-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="336.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="4-5" fitHeight="39.0" fitWidth="37.0" layoutX="297.0" layoutY="287.0" smooth="false">
+    <ImageView id="4-5" fitHeight="39.0" fitWidth="37.0" layoutX="297.0" layoutY="287.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="5-0" fitHeight="39.0" fitWidth="37.0" layoutX="59.0" layoutY="336.0" smooth="false">
+    <ImageView id="5-0" fitHeight="39.0" fitWidth="37.0" layoutX="59.0" layoutY="336.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
     <ImageView id="3-2" fitHeight="39.0" fitWidth="37.0" layoutX="155.0" layoutY="240.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="3-3" fitHeight="39.0" fitWidth="37.0" layoutX="202.0" layoutY="240.0" smooth="false">
+    <ImageView id="3-3" fitHeight="39.0" fitWidth="37.0" layoutX="202.0" layoutY="240.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="3-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="240.0" smooth="false">
+    <ImageView id="3-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="240.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="3-0" fitHeight="39.0" fitWidth="37.0" layoutX="59.0" layoutY="240.0" smooth="false">
+    <ImageView id="3-0" fitHeight="39.0" fitWidth="37.0" layoutX="59.0" layoutY="240.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="5-4" fitHeight="39.0" fitWidth="37.0" layoutX="249.0" layoutY="336.0" smooth="false">
+    <ImageView id="5-4" fitHeight="39.0" fitWidth="37.0" layoutX="249.0" layoutY="336.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="4-3" fitHeight="39.0" fitWidth="37.0" layoutX="202.0" layoutY="287.0" smooth="false">
+    <ImageView id="4-3" fitHeight="39.0" fitWidth="37.0" layoutX="202.0" layoutY="287.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView id="3-4" fitHeight="39.0" fitWidth="37.0" layoutX="249.0" layoutY="240.0" smooth="false">
+    <ImageView id="3-4" fitHeight="39.0" fitWidth="37.0" layoutX="249.0" layoutY="240.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
     <ImageView id="4-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="287.0">
@@ -164,7 +164,7 @@
     <ImageView id="1-2" fitHeight="39.0" fitWidth="37.0" layoutX="155.0" layoutY="144.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
-    <ImageView disable="true" id="1-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="144.0">
+    <ImageView  id="1-1" fitHeight="39.0" fitWidth="37.0" layoutX="108.0" layoutY="144.0">
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
     <ImageView id="1-0" fitHeight="39.0" fitWidth="37.0" layoutX="59.0" layoutY="144.0">

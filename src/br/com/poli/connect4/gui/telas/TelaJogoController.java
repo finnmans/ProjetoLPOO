@@ -116,7 +116,6 @@ public class TelaJogoController implements Initializable {
         y = partida.fazerJogada(x);
         setPecaImage(x,y,partida.getJogadorAtual().getNumero());
         togglePeca(x,y,true);
-        partida.fazerJogada(x);
       } catch (Exception e) {
         System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
       }
