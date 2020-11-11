@@ -103,7 +103,8 @@ public class TelaJogoController implements Initializable {
   }
   
   private void changeColorPlayer(int jogadorat){ 
-    (jogadorat==1? j2:j1).setTextFill(Color.GRAY);
+   // Color blue = new Color(0,103,154,100);
+    (jogadorat==1? j2:j1).setTextFill(Color.rgb(0,104,154,0.5));
     (jogadorat==1? j1:j2).setTextFill(Color.WHITE);
   }
   
