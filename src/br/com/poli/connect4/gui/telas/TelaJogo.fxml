@@ -161,5 +161,10 @@
       <Image url="@images/PeçaJogadaAzulAtivo-6.png"/>
     </ImageView>
     </Group>
+    <Button onAction="#fecharTela" layoutX="387.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="23.0" style="-fx-border-radius: 25px; -fx-background-color: #1899CD;" text="X" textFill="WHITE">
+      <font>
+        <Font size="13.0" />
+      </font>
+    </Button>
   </AnchorPane>
 </VBox>

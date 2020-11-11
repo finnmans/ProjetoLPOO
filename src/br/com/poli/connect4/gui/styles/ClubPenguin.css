@@ -1,3 +1,21 @@
-.root{
+.root {
   -fx-background-color: #1899CD;
+  -fx-background-radius: 20 20 20 20;
+}
+
+.root > button {
+  -fx-background-color: #1899CD;
+  -fx-background-radius: 20 20 20 20;
+}
+
+.dialog-pane{
+  -fx-background-color: #1899CD;
+  -fx-border-radius: 20 20 20 20;
+  -fx-text-fill: #ffff;
+}
+
+.dialog-pane > .content.label {
+  -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+  -fx-text-fill:white;
+  -fx-font-size: 20px;
 }

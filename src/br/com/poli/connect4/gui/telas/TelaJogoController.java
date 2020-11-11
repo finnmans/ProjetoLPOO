@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
@@ -164,4 +165,9 @@ public class TelaJogoController implements Initializable {
 
   }
 
+  public void fecharTela(ActionEvent actionEvent) {
+    final Node source = (Node) actionEvent.getSource();
+    final Stage stage = (Stage) source.getScene().getWindow();
+    stage.close();
+  }
 }

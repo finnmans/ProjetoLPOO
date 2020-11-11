@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.scene.effect.DropShadow;
 import java.io.IOException;
@@ -72,5 +74,10 @@ public class TelaCadastroController implements Initializable {
  
   }
 
-  
+
+  public void fecharTela(ActionEvent actionEvent) {
+    final Node source = (Node) actionEvent.getSource();
+    final Stage stage = (Stage) source.getScene().getWindow();
+    stage.close();
+  }
 }
