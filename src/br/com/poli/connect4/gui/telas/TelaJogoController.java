@@ -5,6 +5,8 @@ import br.com.poli.connect4.Partida;
 import br.com.poli.connect4.gui.JanelaPrincipal;
 import br.com.poli.connect4.singletons.PartidaBuilder;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -85,5 +87,13 @@ public class TelaJogoController implements Initializable {
   
   private void togglePeca(int x, int y, boolean active){
     pecas[y][x].setVisible(active);
+  }
+  
+  
+  public void makePlay(ActionEvent event) {
+    Node node = (Node) event.getSource() ;
+    String data = (String) node.getUserData();
+    int value = Integer.parseInt(data);
+    System.out.println(data);
   }
 }
