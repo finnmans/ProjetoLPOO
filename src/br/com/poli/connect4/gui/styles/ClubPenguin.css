@@ -3,10 +3,19 @@
   -fx-background-radius: 20 20 20 20;
 }
 
-.root > button {
+.button {
   -fx-background-color: #1899CD;
   -fx-background-radius: 20 20 20 20;
+  -fx-text-fill:white;
+  -fx-font-size: 15px;
+
 }
+
+.button:hover {
+  -fx-background-color: white;
+  -fx-text-fill: #1899CD;
+}
+
 
 .dialog-pane{
   -fx-background-color: #1899CD;
@@ -19,3 +28,8 @@
   -fx-text-fill:white;
   -fx-font-size: 20px;
 }
+
+.dialog-pane .button {
+  -fx-background-color: #0d7ba7;
+}
+
