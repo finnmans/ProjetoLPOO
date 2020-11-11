@@ -84,13 +84,14 @@ public class Partida {
    * vencedor Caso contrário passa a vez para o próximo jogador.
    * 
    * @param x Posição Horizontal(Coluna) que se pretende jogar.
+   * @return Inteiro com a posição Y onde a peça parou.
    * @throws FullColumnException      caso a coluna especificada pelo parametro
    *                                  position já esteja cheia.
    * @throws IllegalArgumentException caso a coluna especificada pelo parametro
    *                                  position seja menor que 0 ou maior que o
    *                                  valor máximo.
    */
-  public void fazerJogada(int x) throws FullColumnException {
+  public int fazerJogada(int x) throws FullColumnException {
     int playerNum = jogadorAtual.getNumero();
 
     int y = tabuleiro.fazerJogada(x, playerNum);
@@ -100,6 +101,8 @@ public class Partida {
     } else {
       trocarJogadores();
     }
+    
+    return y;
   }
 
   /**
