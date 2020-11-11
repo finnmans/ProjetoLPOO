@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 
@@ -65,10 +66,7 @@ public class TelaJogoController implements Initializable {
 
     p1peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaVermAtivo-7.png").toString());
     p2peca = new Image(JanelaPrincipal.class.getResource("telas/images/PeçaJogadaAzulAtivo-6.png").toString());
-
-
-    setPecaImage(1, 5, 1);
-    togglePeca(1, 5, true);
+    
 
     //printar no console
     log(builder);
@@ -80,7 +78,13 @@ public class TelaJogoController implements Initializable {
     j2.setFont(font);
     j1.setText(builder.getUserName(0));
     j2.setText(builder.getUserName(1));
-
+   
+    DropShadow shadow = new DropShadow();
+    shadow.setOffsetY(8.0);
+    //Setting the effect to the text
+   
+    j1.setEffect(shadow);
+    j2.setEffect(shadow);
   }
 
   private void setPecaImage(int x, int y, int jogador) {

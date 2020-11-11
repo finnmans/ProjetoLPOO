@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class TelaCadastroController implements Initializable {
   @FXML
   private Button mainButton;
@@ -28,13 +29,21 @@ public class TelaCadastroController implements Initializable {
   @FXML
   private TextArea tFieldP1;
   @FXML
-  private Label j1;
-  @FXML 
-  private Label j2;
+  private Label joga1;
+  @FXML
+  private Label joga2;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     System.out.println("[TelaCadastro] Inicializando");
+    Font font = Font.loadFont(JanelaPrincipal.class.getResource("fonts/CCComicrazy-Roman.ttf").toExternalForm(), 18);
+    joga1.setFont(font);
+    joga2.setFont(font);
+    DropShadow shadow = new DropShadow();
+    shadow.setOffsetY(8.0);
+    //Setting the effect to the text
+    joga1.setEffect(shadow);
+    joga2.setEffect(shadow);
   }
 
   public void handleStart(ActionEvent actionEvent) throws IOException {
@@ -52,6 +61,8 @@ public class TelaCadastroController implements Initializable {
     builder.setUserName(tFieldP2.getText(),1);
     
     
+    
+   
     /*
     System.out.println(tFieldP1.getText()); //testes
     System.out.println(tFieldP2.getText());
