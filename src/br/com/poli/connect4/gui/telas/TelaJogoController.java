@@ -93,6 +93,8 @@ public class TelaJogoController implements Initializable {
     
     j1.setEffect(shadow);
     j2.setEffect(shadow);
+    changeColorPlayer(jogadorInicial.getNumero());
+
   }
 
   private void setPecaImage(int x, int y, int jogador) {
@@ -125,9 +127,7 @@ public class TelaJogoController implements Initializable {
 
     try {
       y = partida.fazerJogada(x);
-      setPecaImage(x,y,partida.getJogadorAtual().getNumero());
-      togglePeca(x,y,true);
-      changeColorPlayer(partida.getJogadorAtual().getNumero());
+    
     } catch (Exception e) {
       System.out.println("\n\u001B[31mposição inválida, tente novamente! \u001B[0m\n");
 
@@ -139,6 +139,8 @@ public class TelaJogoController implements Initializable {
 
     setPecaImage(x, y, jogador);
     togglePeca(x, y, true);
+    changeColorPlayer(partida.getJogadorAtual().getNumero());
+
 
     System.out.println(partida.getTabuleiroString());
     vencedor = partida.getVencedor();
